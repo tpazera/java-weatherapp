@@ -1,0 +1,9 @@
+@FXML
+private void reload(ActionEvent event) {
+    String value = ((Button) event.getSource()).getText();
+    Scene scene = button1.getScene();
+    String css = String.valueOf(getClass().getResource("../styles/style2.css"));
+    System.out.println(css);
+    scene.getStylesheets().add(css);
+    System.out.println(value);
+}

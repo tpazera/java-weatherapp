@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="800.0" styleClass="main_panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.knw.weatherapp.controllers.MainController">
+   <children>
+      <GridPane layoutY="510.0" prefHeight="90.0" prefWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="actualButton" mnemonicParsing="false" onAction="#goToActualWeather" prefHeight="234.0" prefWidth="328.0" styleClass="main_button" text="Aktualna pogoda" />
+            <Button fx:id="forecastButton" mnemonicParsing="false" onAction="#goToForecast" prefHeight="224.0" prefWidth="310.0" styleClass="main_button" text="Prognoza pogody" GridPane.columnIndex="1" />
+            <Button fx:id="settingsButton" mnemonicParsing="false" onAction="#goToSettings" prefHeight="90.0" prefWidth="271.0" styleClass="main_button" text="Ustawienia" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

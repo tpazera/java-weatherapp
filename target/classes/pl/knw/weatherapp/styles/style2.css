@@ -1,0 +1,11 @@
+.main_panel {
+    -fx-background-color: #78a1ff;
+    -fx-font-family: "Abyssinica SIL";
+}
+
+.main_panel .main_button {
+    -fx-background-color: #dce7ff;
+    -fx-border-width: 1px;
+    -fx-text-fill: #5aff5e;
+    -fx-font-size: 35px;
+}

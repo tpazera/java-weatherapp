@@ -1,10 +1,7 @@
-package pl.knw.weatherapp.models;
+package pl.knw.weatherapp.models.main;
 
 import com.maxmind.geoip.Location;
 import com.maxmind.geoip.LookupService;
-import net.aksingh.owmjapis.DailyForecast;
-import net.aksingh.owmjapis.OpenWeatherMap;
-import org.json.JSONException;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -48,33 +45,11 @@ public class MainModel {
         return locationInfo;
     }
 
-    public Map<String, String> getCurrentWeather() {
-        boolean isMetric = true;
-        String owmApiKey = "305be23140a9d5d08890247143be3227";
-        Map<String, String> locationParams = this.getCurrentLocation();
-        String weatherCity = locationParams.get("City")+","+locationParams.get("CountryCode");
-        byte forecastDays = 3;
-        OpenWeatherMap.Units units = (isMetric)
-                ? OpenWeatherMap.Units.METRIC
-                : OpenWeatherMap.Units.IMPERIAL;
-        OpenWeatherMap owm = new OpenWeatherMap(units, owmApiKey);
-        try {
-            DailyForecast forecast = owm.dailyForecastByCityName(weatherCity, forecastDays);
-            System.out.println("Weather for: " + forecast.getCityInstance().getCityName());
-            int numForecasts = forecast.getForecastCount();
-            for (int i = 0; i < numForecasts; i++) {
-                DailyForecast.Forecast dayForecast = forecast.getForecastInstance(i);
-                DailyForecast.Forecast.Temperature temperature = dayForecast.getTemperatureInstance();
-                System.out.println("\t" + dayForecast.getDateTime());
-                System.out.println("\tTemperature: " + temperature.getMinimumTemperature() +
-                        " to " + temperature.getMaximumTemperature() + "\n");
-            }
-        }
-        catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
+    public ActualWeatherDescription getCurrentWeather() {
+        ActualWeatherDescription actualWeather = new ActualWeatherDescription();
+        System.out.println("Aktualna pogoda: " + actualWeather);
 
-        return locationParams;
+        return actualWeather;
     }
 
     public static String getIp() {

@@ -18,12 +18,12 @@ public class ActualController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Loading the 'Actual' controller...");
+        System.out.println("-> Loading the 'Actual' controller...");
 
     }
 
     public void goToMainPage(ActionEvent actionEvent) throws IOException {
-        System.out.println("Switching scene from 'Actual' to 'Home'...");
+        System.out.println("-> Switching scene from 'Actual' to 'Home'...");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/MainView.fxml"));
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.setTitle("WeatherApp - Strona główna");

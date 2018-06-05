@@ -18,12 +18,12 @@ public class ForecastController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("Loading the forecast controller...");
+        System.out.println("-> Loading the forecast controller...");
 
     }
 
     public void goToMainPage(ActionEvent actionEvent) throws IOException {
-        System.out.println("Switching scene from 'Forecast' to 'Home'...");
+        System.out.println("-> Switching scene from 'Forecast' to 'Home'...");
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/MainView.fxml"));
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.setTitle("WeatherApp - Strona główna");

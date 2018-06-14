@@ -104,7 +104,7 @@ public class SettingsController implements Initializable {
     public void goToMainPage(ActionEvent actionEvent) throws IOException {
         final ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("-> Switching scene from 'Settings' to 'Home'...");
-        PrintWriter writer = new PrintWriter(new File(String.valueOf(getClass().getResource("pl/knw/weatherapp/userconfig.cfg"))));
+        PrintWriter writer = new PrintWriter(new File("config.cfg"));
         writer.println(nameTextField.getText());
         properties.put("name", nameTextField.getText());
         properties.put("sites", sitesSettings);

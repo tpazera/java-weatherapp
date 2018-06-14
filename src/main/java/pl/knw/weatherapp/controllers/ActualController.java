@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import pl.knw.weatherapp.models.actual.ActualModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +19,8 @@ public class ActualController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("-> Loading the 'Actual' controller...");
+        ActualModel model = new ActualModel();
+
 
     }
 

@@ -26,11 +26,17 @@ public class MainModel {
             if (locationServices == null) {
                 System.out.println("GeoliteCity database null!");
             }
-            locationInfo.put("City", locationServices.city);
-            locationInfo.put("CountryCode", locationServices.countryCode);
-            locationInfo.put("Latitude", String.valueOf(locationServices.latitude));
-            locationInfo.put("Longitude", String.valueOf(locationServices.longitude));
-
+            if(locationServices.city.equals("Polska")) {
+                locationInfo.put("City", "Krakow");
+                locationInfo.put("CountryCode", "PL");
+                locationInfo.put("Latitude", "50");
+                locationInfo.put("Longitude", "19");
+            } else {
+                locationInfo.put("City", locationServices.city);
+                locationInfo.put("CountryCode", locationServices.countryCode);
+                locationInfo.put("Latitude", String.valueOf(locationServices.latitude));
+                locationInfo.put("Longitude", String.valueOf(locationServices.longitude));
+            }
             return locationInfo;
 
         } catch (IOException e) {

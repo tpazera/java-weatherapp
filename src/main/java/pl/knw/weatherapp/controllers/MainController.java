@@ -4,23 +4,27 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.main.ActualWeatherDescription;
 import pl.knw.weatherapp.models.main.MainModel;
-import pl.knw.weatherapp.models.main.ProjectProperties;
+import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Map;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class MainController implements Initializable {
 
     @FXML
     public AnchorPane rootPane;
-    public Map<String, String> locationParams, locationParams2;
+    public Map<String, String> locationParams;
+    public Button actualButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -37,14 +41,15 @@ public class MainController implements Initializable {
             properties.put("latitude", locationParams.get("Latitude"));
             properties.put("longtitude", locationParams.get("Longtitude"));
             properties.put("api", "305be23140a9d5d08890247143be3227");
-
         }
 
         ActualWeatherDescription weatherParams = model.getCurrentWeather();
         //KASIA - TUTAJ MASZ AKTUALNĄ POGODĘ - KLASA ActualWeatherDescription()
         //używaj getterów i setterów do wpisywania do labeli, np:
         //Lista parametrów: data, maksymalna temperatura, minimalna temperatura, średnia temperatura,
-        //wilgotność, ciśnienie, zachmurzenie, prędkosć wiatru
+        //wilgotność, ciśnienie, zachmurzenie, prędkosć wiatru, opis, kod obrazka (zdj na dysku), kod pogody (link na strone)
+        //na podstawie kodu obrazka lub kodu pogody wyświetl odpowiedni obrazek
+        //fajnie by było też spolszczyć te opisy, czyli zrobić ify że gdy opis jest równy "clear sky" to wpisujesz do labela "Czyste niebo"
         //wyświetl jakoś ładnie te wszystkie parametry
         String windSpeed = weatherParams.getWind_Speed();
         System.out.println(windSpeed);
@@ -54,7 +59,7 @@ public class MainController implements Initializable {
     @FXML
     public void goToActualWeather(ActionEvent actionEvent) throws IOException {
         System.out.println("-> Switching scene to 'Actual Weather'...");
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/SettingsView.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/ActualView.fxml"));
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.setTitle("WeatherApp - Aktualna temperatura");
         rootPane.getChildren().setAll(pane);
@@ -63,7 +68,7 @@ public class MainController implements Initializable {
     @FXML
     public void goToForecast(ActionEvent actionEvent) throws IOException {
         System.out.println("-> Switching scene to 'Forecast'...");
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/SettingsView.fxml"));
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/ForecastView.fxml"));
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.setTitle("WeatherApp - Prognozowana pogoda");
         rootPane.getChildren().setAll(pane);

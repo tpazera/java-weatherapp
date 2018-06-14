@@ -1,10 +1,10 @@
 .main_panel {
-    -fx-background-color: #ffd08c;
+    -fx-background-color: #78a1ff;
     -fx-font-family: "Abyssinica SIL";
 }
 
 .main_panel .main_button {
-    -fx-background-color: #88f0ff;
+    -fx-background-color: #dce7ff;
     -fx-border-width: 1px;
     -fx-border-color: black;
     -fx-text-fill: black;
@@ -12,11 +12,11 @@
 }
 
 .selected {
-    -fx-background-color: #9e131d;
+    -fx-background-color: #ff3809;
     -fx-text-fill: white;
 }
 
 .notselected {
-    -fx-background-color: #2abf3d;
+    -fx-background-color: #2fdf44;
     -fx-text-fill: white;
 }

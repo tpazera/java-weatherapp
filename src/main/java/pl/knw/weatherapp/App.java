@@ -23,7 +23,7 @@ public class App extends Application {
         ProjectProperties properties = ProjectProperties.getInstance();
         Scanner sc = null;
         try {
-            sc = new Scanner(new File(String.valueOf(getClass().getResource("pl/knw/weatherapp/userconfig.cfg"))));
+            sc = new Scanner(new File("config.cfg"));
             List<String> lines = new ArrayList<String>();
             while (sc.hasNextLine()) {
                 lines.add(sc.nextLine());

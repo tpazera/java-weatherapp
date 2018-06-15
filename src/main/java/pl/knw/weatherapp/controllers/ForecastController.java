@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import pl.knw.weatherapp.models.forecast.ForecastModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +19,7 @@ public class ForecastController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        System.out.println("-> Loading the forecast controller...");
+        ForecastModel model = new ForecastModel();
 
     }
 

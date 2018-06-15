@@ -5,11 +5,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import net.aksingh.owmjapis.CurrentWeather;
 import pl.knw.weatherapp.models.actual.ActualModel;
 import pl.knw.weatherapp.models.actual.Sites;
 
@@ -31,18 +32,18 @@ public class ActualController implements Initializable {
     public Label cloudy1, cloudy2, cloudy3, cloudy4, cloudy5, cloudy6;
     public Label humidity1, humidity2, humidity3, humidity4, humidity5, humidity6;
     public Label rain1, rain2, rain3, rain4, rain5, rain6;
-    public List< GridPane > gridpanes = new ArrayList<>();
-    public List< ImageView > imageviews = new ArrayList<>();
-    public List< Label > temperature_labels = new ArrayList<>();
-    public List< Label > wind_labels = new ArrayList<>();
-    public List< Label > pressure_labels = new ArrayList<>();
-    public List< Label > cloudy_labels = new ArrayList<>();
-    public List< Label > humidity_labels = new ArrayList<>();
-    public List< Label > rain_labels = new ArrayList<>();
+    private List< GridPane > gridpanes = new ArrayList<>();
+    private List< ImageView > imageviews = new ArrayList<>();
+    private List< Label > temperature_labels = new ArrayList<>();
+    private List< Label > wind_labels = new ArrayList<>();
+    private List< Label > pressure_labels = new ArrayList<>();
+    private List< Label > cloudy_labels = new ArrayList<>();
+    private List< Label > humidity_labels = new ArrayList<>();
+    private List< Label > rain_labels = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        rootPane.setBackground(Background.EMPTY);
+        //rootPane.setBackground(Background.EMPTY);
 
         fillListWithObjects();
 
@@ -68,14 +69,16 @@ public class ActualController implements Initializable {
                 gridpanes.get(i).setLayoutX(posx);
             }
             site = (Sites) iterator.next();
-            temperature_labels.get(i).setText(site.getCurrentTemperature());
-            wind_labels.get(i).setText(site.getCurrentWind());
-            pressure_labels.get(i).setText(site.getCurrentPressure());
-            cloudy_labels.get(i).setText(site.getCurrentCloudy());
-            humidity_labels.get(i).setText(site.getCurrentHumidity());
-            rain_labels.get(i).setText(site.getCurrentRain());
+            temperature_labels.get(i).setText("Temperatura: " + site.getCurrentTemperature());
+            wind_labels.get(i).setText("Wiatr: " + site.getCurrentWind());
+            pressure_labels.get(i).setText("Ciśnienie: " + site.getCurrentPressure());
+            cloudy_labels.get(i).setText("Zachmurzenie: " + site.getCurrentCloudy());
+            humidity_labels.get(i).setText("Wilgotność: " + site.getCurrentHumidity());
+            rain_labels.get(i).setText("Deszcz: " + site.getCurrentRain());
+            System.out.println("../images/"+site.getName()+"logo.png");
+            imageviews.get(i).setImage(new Image(getClass().getResourceAsStream("../images/logo/"+site.getName()+"logo.png")));
 
-            System.out.println(site.getName());
+            //System.out.println(site.getName());
             i++;
         }
 

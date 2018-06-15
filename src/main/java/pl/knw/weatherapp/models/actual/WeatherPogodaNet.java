@@ -21,6 +21,7 @@ public class WeatherPogodaNet extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -36,7 +37,7 @@ public class WeatherPogodaNet extends Sites {
     //Link: http://pogoda.net/Krakow?gclid=CjwKCAjwgYPZBRBoEiwA2XeupcpA7-sjigGAGBOsrnzG6QE2zDnYCv9Zml0ng0hs6HIwPA0atMVwZBoC_pIQAvD_BwE
 
     public String getName() {
-        String name = "Pogodanet";
+        String name = "pogodanet";
         return name;
     }
 
@@ -46,10 +47,10 @@ public class WeatherPogodaNet extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(6) > strong").first();
             temperature = tag.text();
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

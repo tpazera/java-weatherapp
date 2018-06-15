@@ -21,6 +21,7 @@ public class WeatherExample extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -46,10 +47,10 @@ public class WeatherExample extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("...").first();
             temperature = tag.text();
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

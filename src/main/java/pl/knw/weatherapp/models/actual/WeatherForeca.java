@@ -21,6 +21,7 @@ public class WeatherForeca extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -36,7 +37,7 @@ public class WeatherForeca extends Sites {
     //Link: https://www.foreca.pl/Poland/Lesser-Poland-Voivodeship/Krak%C3%B3w
 
     public String getName() {
-        String name = "Foreca";
+        String name = "foreca";
         return name;
     }
 
@@ -46,10 +47,10 @@ public class WeatherForeca extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
             temperature = tag.text();
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

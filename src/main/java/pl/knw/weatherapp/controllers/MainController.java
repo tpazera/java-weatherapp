@@ -1,5 +1,7 @@
 package pl.knw.weatherapp.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,17 +9,21 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import pl.knw.weatherapp.models.main.ActualWeatherDescription;
 import pl.knw.weatherapp.models.main.MainModel;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 
+import javax.swing.text.html.ImageView;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MainController implements Initializable {
 
@@ -25,10 +31,13 @@ public class MainController implements Initializable {
     public AnchorPane rootPane;
     public Map<String, String> locationParams;
     public Button actualButton;
+    public Pane loading_img;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         MainModel model = new MainModel();
+        loading_img.getStyleClass().clear();
+        loading_img.getStyleClass().add("loading-hidden");
         //Property design pattern (jak singleton) - zostanie utworzona tylko jedna instancja
         ProjectProperties properties = ProjectProperties.getInstance();
         if (properties.get("ip") == null || properties.get("city") == null) {
@@ -57,12 +66,34 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void goToActualWeather(ActionEvent actionEvent) throws IOException {
+    public void goToActualWeather(ActionEvent actionEvent) {
         System.out.println("-> Switching scene to 'Actual Weather'...");
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(1),
+                ae -> showLoadingImage()),
+                new KeyFrame(
+                        Duration.millis(2000),
+                        ae -> {
+                            try {
+                                showActualWeather();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }));
+        timeline.play();
+
+    }
+
+    private void showActualWeather() throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("../views/ActualView.fxml"));
         Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.setTitle("WeatherApp - Aktualna temperatura");
         rootPane.getChildren().setAll(pane);
+    }
+
+    private void showLoadingImage() {
+        loading_img.getStyleClass().clear();
+        loading_img.getStyleClass().add("loading-visible");
     }
 
     @FXML

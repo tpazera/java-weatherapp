@@ -21,6 +21,7 @@ public class WeatherOnet extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -36,7 +37,7 @@ public class WeatherOnet extends Sites {
     //Link: https://pogoda.onet.pl/prognoza-pogody/krakow-306020
 
     public String getName() {
-        String name = "Onet";
+        String name = "onet";
         return name;
     }
 
@@ -46,10 +47,10 @@ public class WeatherOnet extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
             temperature = tag.text();
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

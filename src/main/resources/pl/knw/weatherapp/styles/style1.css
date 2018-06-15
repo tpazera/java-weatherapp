@@ -33,6 +33,14 @@
     visibility: visible;
 }
 
+.loading-hidden {
+    visibility: hidden;
+}
+
+.loading-visible {
+    visibility: visible;
+}
+
 #main_anchor {
     width: 600px;
 }

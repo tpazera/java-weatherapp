@@ -4,7 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.GridPane;
@@ -23,25 +24,34 @@ public class ActualController implements Initializable {
     @FXML
     public AnchorPane rootPane;
     public GridPane gridpane1, gridpane2, gridpane3, gridpane4, gridpane5, gridpane6;
+    public ImageView img1, img2, img3, img4, img5, img6;
+    public Label temperature1, temperature2, temperature3, temperature4, temperature5, temperature6;
+    public Label wind1, wind2, wind3, wind4, wind5, wind6;
+    public Label pressure1, pressure2, pressure3, pressure4, pressure5, pressure6;
+    public Label cloudy1, cloudy2, cloudy3, cloudy4, cloudy5, cloudy6;
+    public Label humidity1, humidity2, humidity3, humidity4, humidity5, humidity6;
+    public Label rain1, rain2, rain3, rain4, rain5, rain6;
+    public List< GridPane > gridpanes = new ArrayList<>();
+    public List< ImageView > imageviews = new ArrayList<>();
+    public List< Label > temperature_labels = new ArrayList<>();
+    public List< Label > wind_labels = new ArrayList<>();
+    public List< Label > pressure_labels = new ArrayList<>();
+    public List< Label > cloudy_labels = new ArrayList<>();
+    public List< Label > humidity_labels = new ArrayList<>();
+    public List< Label > rain_labels = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         rootPane.setBackground(Background.EMPTY);
 
-        List< GridPane > gridpanes = new ArrayList<>();
-        gridpanes.add(gridpane1);
-        gridpanes.add(gridpane2);
-        gridpanes.add(gridpane3);
-        gridpanes.add(gridpane4);
-        gridpanes.add(gridpane5);
-        gridpanes.add(gridpane6);
+        fillListWithObjects();
 
         ActualModel model = new ActualModel();
         ArrayList< Sites > sites = model.getWeatherModels();
         Iterator iterator = new ListIterator(sites);
 
         int numberOfGridPane = iterator.size();
-        Sites site = new Sites();
+        Sites site;
 
         int i = 0;
         while (iterator.hasNext()) {
@@ -58,12 +68,77 @@ public class ActualController implements Initializable {
                 gridpanes.get(i).setLayoutX(posx);
             }
             site = (Sites) iterator.next();
-            site.getCurrentTemperature();
+            temperature_labels.get(i).setText(site.getCurrentTemperature());
+            wind_labels.get(i).setText(site.getCurrentWind());
+            pressure_labels.get(i).setText(site.getCurrentPressure());
+            cloudy_labels.get(i).setText(site.getCurrentCloudy());
+            humidity_labels.get(i).setText(site.getCurrentHumidity());
+            rain_labels.get(i).setText(site.getCurrentRain());
+
             System.out.println(site.getName());
             i++;
         }
 
 
+    }
+
+    private void fillListWithObjects() {
+        //Gridpanes
+        gridpanes.add(gridpane1);
+        gridpanes.add(gridpane2);
+        gridpanes.add(gridpane3);
+        gridpanes.add(gridpane4);
+        gridpanes.add(gridpane5);
+        gridpanes.add(gridpane6);
+        //ImageViews
+        imageviews.add(img1);
+        imageviews.add(img2);
+        imageviews.add(img3);
+        imageviews.add(img4);
+        imageviews.add(img5);
+        imageviews.add(img6);
+        //TemperatureLabels
+        temperature_labels.add(temperature1);
+        temperature_labels.add(temperature2);
+        temperature_labels.add(temperature3);
+        temperature_labels.add(temperature4);
+        temperature_labels.add(temperature5);
+        temperature_labels.add(temperature6);
+        //WindLabels
+        wind_labels.add(wind1);
+        wind_labels.add(wind2);
+        wind_labels.add(wind3);
+        wind_labels.add(wind4);
+        wind_labels.add(wind5);
+        wind_labels.add(wind6);
+        //PressureLabels
+        pressure_labels.add(pressure1);
+        pressure_labels.add(pressure2);
+        pressure_labels.add(pressure3);
+        pressure_labels.add(pressure4);
+        pressure_labels.add(pressure5);
+        pressure_labels.add(pressure6);
+        //CloudyLabels
+        cloudy_labels.add(cloudy1);
+        cloudy_labels.add(cloudy2);
+        cloudy_labels.add(cloudy3);
+        cloudy_labels.add(cloudy4);
+        cloudy_labels.add(cloudy5);
+        cloudy_labels.add(cloudy6);
+        //HumidityLabels
+        humidity_labels.add(humidity1);
+        humidity_labels.add(humidity2);
+        humidity_labels.add(humidity3);
+        humidity_labels.add(humidity4);
+        humidity_labels.add(humidity5);
+        humidity_labels.add(humidity6);
+        //RainLabels
+        rain_labels.add(rain1);
+        rain_labels.add(rain2);
+        rain_labels.add(rain3);
+        rain_labels.add(rain4);
+        rain_labels.add(rain5);
+        rain_labels.add(rain6);
     }
 
 

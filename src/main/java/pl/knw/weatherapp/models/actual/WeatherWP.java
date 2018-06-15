@@ -21,6 +21,7 @@ public class WeatherWP extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -41,7 +42,7 @@ public class WeatherWP extends Sites {
     //stąd pobieraj dane i obcinaj tekst, żeby zwracało same wartości, tak jak ja w getCurrentTemperature
 
     public String getName() {
-        String name = "WP";
+        String name = "wp";
         return name;
     }
 
@@ -51,11 +52,11 @@ public class WeatherWP extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("body > div.static > span:nth-child(4)").first();
             temperature = tag.text();
             temperature = temperature.substring(13,temperature.length()-1); //obcinam "Temperature: "
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -11,6 +11,7 @@ public class ActualModel {
     public ArrayList< Sites > getWeatherModels() {
         ProjectProperties properties = ProjectProperties.getInstance();
         Integer[] sitesSettings = (Integer[]) properties.get("sites");
+        sites.clear();
         for(int i = 0; i < sitesSettings.length; i++) {
             if(sitesSettings[i] == 1) {
                 switch(i) {

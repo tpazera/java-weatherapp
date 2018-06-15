@@ -21,6 +21,7 @@ public class WeatherGismeteo extends Sites {
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Elements links = doc.select(".srg .rc .r a");
             for (Element link : links) {
@@ -36,7 +37,7 @@ public class WeatherGismeteo extends Sites {
     //Link: https://www.gismeteo.pl/weather-krakow-3212/14-days/
 
     public String getName() {
-        String name = "Gismeteo";
+        String name = "gismeteo";
         return name;
     }
 
@@ -46,11 +47,11 @@ public class WeatherGismeteo extends Sites {
         try {
             doc = Jsoup.connect(weatherlink)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
                     .get();
             Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
             temperature = tag.text();
             temperature = temperature.substring(0,temperature.length()-1);
-            System.out.println(temperature);
         } catch (IOException e) {
             e.printStackTrace();
         }

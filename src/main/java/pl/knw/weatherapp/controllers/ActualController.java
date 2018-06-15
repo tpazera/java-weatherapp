@@ -1,17 +1,21 @@
 package pl.knw.weatherapp.controllers;
 
+import javafx.beans.binding.DoubleBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.actual.ActualModel;
 import pl.knw.weatherapp.models.actual.Sites;
+import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 import java.io.IOException;
 import java.net.URL;
@@ -23,6 +27,8 @@ public class ActualController implements Initializable {
 
     @FXML
     public AnchorPane rootPane, main_anchor;
+    public ImageView background_view;
+    public ScrollPane actual_scroll;
     public GridPane gridpane1, gridpane2, gridpane3, gridpane4, gridpane5, gridpane6;
     public ImageView img1, img2, img3, img4, img5, img6;
     public Label temperature1, temperature2, temperature3, temperature4, temperature5, temperature6;
@@ -42,8 +48,9 @@ public class ActualController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //rootPane.setBackground(Background.EMPTY);
 
+        ProjectProperties properties = ProjectProperties.getInstance();
+        background_view.setImage(new Image(getClass().getResourceAsStream("../images/weather-bg/bg"+properties.get("weathercondition")+".png"), 1400, 600, false, false));
         fillListWithObjects();
 
         ActualModel model = new ActualModel();
@@ -56,7 +63,18 @@ public class ActualController implements Initializable {
         int i = 0;
         while (iterator.hasNext()) {
             gridpanes.get(i).getStyleClass().clear();
-            gridpanes.get(i).getStyleClass().add("actual-grid-visible");
+            BackgroundImage img1= new BackgroundImage(new Image(getClass().getResourceAsStream("../images/transparent-background-1.png"),32,32,false,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            BackgroundImage img2= new BackgroundImage(new Image(getClass().getResourceAsStream("../images/transparent-background-2.png"),32,32,false,true),
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundSize.DEFAULT);
+            if(i%2 == 0) {
+                gridpanes.get(i).setBackground(new Background(img1));
+            } else {
+                gridpanes.get(i).setBackground(new Background(img2));
+            }
+
             if(numberOfGridPane == 1) {
                 double posx = 900 / 2 - 109;
                 gridpanes.get(i).setLayoutX(posx);
@@ -66,7 +84,11 @@ public class ActualController implements Initializable {
             } else if (numberOfGridPane == 3) {
                 double posx = (i + 1) * 61 + i * 218;
                 gridpanes.get(i).setLayoutX(posx);
+            } else {
+                double posx = 14 + i * 218;
+                gridpanes.get(i).setLayoutX(posx);
             }
+
             site = (Sites) iterator.next();
             temperature_labels.get(i).setText("Temperatura: " + site.getCurrentTemperature());
             wind_labels.get(i).setText("Wiatr: " + site.getCurrentWind());
@@ -80,8 +102,10 @@ public class ActualController implements Initializable {
 
         if(numberOfGridPane < 5) {
             main_anchor.setPrefWidth(600);
+            main_anchor.setMaxWidth(600);
         } else {
             main_anchor.setPrefWidth(numberOfGridPane*218+28);
+            main_anchor.setMaxWidth(numberOfGridPane*218+28);
         }
 
 
@@ -154,4 +178,5 @@ public class ActualController implements Initializable {
         stage.setTitle("WeatherApp - Strona główna");
         rootPane.getChildren().setAll(pane);
     }
+
 }

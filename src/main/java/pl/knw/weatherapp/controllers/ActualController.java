@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-import net.aksingh.owmjapis.CurrentWeather;
 import pl.knw.weatherapp.models.actual.ActualModel;
 import pl.knw.weatherapp.models.actual.Sites;
 
@@ -23,7 +22,7 @@ import java.util.ResourceBundle;
 public class ActualController implements Initializable {
 
     @FXML
-    public AnchorPane rootPane;
+    public AnchorPane rootPane, main_anchor;
     public GridPane gridpane1, gridpane2, gridpane3, gridpane4, gridpane5, gridpane6;
     public ImageView img1, img2, img3, img4, img5, img6;
     public Label temperature1, temperature2, temperature3, temperature4, temperature5, temperature6;
@@ -75,11 +74,14 @@ public class ActualController implements Initializable {
             cloudy_labels.get(i).setText("Zachmurzenie: " + site.getCurrentCloudy());
             humidity_labels.get(i).setText("Wilgotność: " + site.getCurrentHumidity());
             rain_labels.get(i).setText("Deszcz: " + site.getCurrentRain());
-            System.out.println("../images/"+site.getName()+"logo.png");
             imageviews.get(i).setImage(new Image(getClass().getResourceAsStream("../images/logo/"+site.getName()+"logo.png")));
-
-            //System.out.println(site.getName());
             i++;
+        }
+
+        if(numberOfGridPane < 5) {
+            main_anchor.setPrefWidth(600);
+        } else {
+            main_anchor.setPrefWidth(numberOfGridPane*218+28);
         }
 
 

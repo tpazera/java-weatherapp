@@ -35,6 +35,11 @@ public class WeatherPogodaNet extends Sites {
 
     //Link: http://pogoda.net/Krakow?gclid=CjwKCAjwgYPZBRBoEiwA2XeupcpA7-sjigGAGBOsrnzG6QE2zDnYCv9Zml0ng0hs6HIwPA0atMVwZBoC_pIQAvD_BwE
 
+    public String getName() {
+        String name = "Pogodanet";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

@@ -35,6 +35,11 @@ public class WeatherExample extends Sites {
 
     //Link:
 
+    public String getName() {
+        String name = "Site";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

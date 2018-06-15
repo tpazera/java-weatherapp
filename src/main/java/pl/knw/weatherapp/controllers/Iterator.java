@@ -1,4 +1,4 @@
-package pl.knw.weatherapp.models.actual;
+package pl.knw.weatherapp.controllers;
 
 public interface Iterator< E >{
     boolean hasNext();

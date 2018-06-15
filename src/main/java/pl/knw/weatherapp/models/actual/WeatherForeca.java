@@ -35,6 +35,11 @@ public class WeatherForeca extends Sites {
 
     //Link: https://www.foreca.pl/Poland/Lesser-Poland-Voivodeship/Krak%C3%B3w
 
+    public String getName() {
+        String name = "Foreca";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

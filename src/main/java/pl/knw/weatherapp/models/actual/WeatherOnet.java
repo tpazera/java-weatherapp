@@ -35,6 +35,11 @@ public class WeatherOnet extends Sites {
 
     //Link: https://pogoda.onet.pl/prognoza-pogody/krakow-306020
 
+    public String getName() {
+        String name = "Onet";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

@@ -24,4 +24,10 @@ public class ListIterator< E > implements Iterator {
         posistion++;
         return item;
     }
+
+    public int size() {
+        int s = items.size();
+        return s;
+    }
+
 }

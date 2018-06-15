@@ -20,3 +20,11 @@
     -fx-background-color: #2fdf44;
     -fx-text-fill: white;
 }
+
+#main_anchor {
+    -fx-background-color: rgba(255, 255, 120, 5);
+}
+
+.actual_grid {
+    visibility: hidden;
+}

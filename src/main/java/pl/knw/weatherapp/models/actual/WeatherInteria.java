@@ -37,6 +37,11 @@ public class WeatherInteria extends Sites {
 
     //Pobierz to co się da
 
+    public String getName() {
+        String name = "Interia";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

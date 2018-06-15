@@ -40,6 +40,11 @@ public class WeatherWP extends Sites {
     //<div class='static" ...
     //stąd pobieraj dane i obcinaj tekst, żeby zwracało same wartości, tak jak ja w getCurrentTemperature
 
+    public String getName() {
+        String name = "WP";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

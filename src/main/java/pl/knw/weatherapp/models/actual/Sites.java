@@ -8,6 +8,11 @@ public class Sites {
         System.out.println("Enclosing new site...");
     }
 
+    public String getName() {
+        String name = "Site";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = "17" + DEGREE + "C";
         return temperature;

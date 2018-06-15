@@ -35,6 +35,11 @@ public class WeatherGismeteo extends Sites {
 
     //Link: https://www.gismeteo.pl/weather-krakow-3212/14-days/
 
+    public String getName() {
+        String name = "Gismeteo";
+        return name;
+    }
+
     public String getCurrentTemperature() {
         String temperature = null;
         Document doc = null;

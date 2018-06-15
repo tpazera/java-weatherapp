@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
@@ -19,7 +20,7 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("views/MainView.fxml"));
         primaryStage.setTitle("WeatherApp - Strona główna");
-        Scene rootScene = new Scene(root, 800, 600);
+        Scene rootScene = new Scene(root, 900, 600);
         ProjectProperties properties = ProjectProperties.getInstance();
         Scanner sc = null;
         try {
@@ -38,6 +39,7 @@ public class App extends Application {
             e.printStackTrace();
         }
         rootScene.getStylesheets().add(String.valueOf(getClass().getResource("styles/" + properties.get("style"))));
+        rootScene.setFill(Color.TRANSPARENT);
         System.out.println(properties.get("style"));
         primaryStage.setScene(rootScene);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);

@@ -1,25 +1,43 @@
 package pl.knw.weatherapp.models.actual;
 
-public class ActualModel {
-    public ActualModel() {
-        WeatherOnet onet = new WeatherOnet();
-        onet.getCurrentTemperature();
-        onet.getCurrentImage();
-        WeatherWP wp = new WeatherWP();
-        wp.getCurrentTemperature();
-        wp.getCurrentImage();
-        WeatherInteria interia = new WeatherInteria();
-        interia.getCurrentTemperature();
-        interia.getCurrentImage();
-        WeatherPogodaNet pogodanet = new WeatherPogodaNet();
-        pogodanet.getCurrentTemperature();
-        pogodanet.getCurrentImage();
-        WeatherForeca foreca = new WeatherForeca();
-        foreca.getCurrentTemperature();
-        foreca.getCurrentImage();
-        WeatherGismeteo gismeteo = new WeatherGismeteo();
-        gismeteo.getCurrentTemperature();
-        gismeteo.getCurrentImage();
+import pl.knw.weatherapp.models.settings.ProjectProperties;
 
+import java.util.ArrayList;
+
+public class ActualModel {
+
+    private static ArrayList< Sites > sites = new ArrayList<>();
+
+    public ArrayList< Sites > getWeatherModels() {
+        ProjectProperties properties = ProjectProperties.getInstance();
+        Integer[] sitesSettings = (Integer[]) properties.get("sites");
+        for(int i = 0; i < sitesSettings.length; i++) {
+            if(sitesSettings[i] == 1) {
+                switch(i) {
+                    case 0:
+                        sites.add(new WeatherWP());
+                        break;
+                    case 1:
+                        sites.add(new WeatherOnet());
+                        break;
+                    case 2:
+                        sites.add(new WeatherInteria());
+                        break;
+                    case 3:
+                        sites.add(new WeatherPogodaNet());
+                        break;
+                    case 4:
+                        sites.add(new WeatherForeca());
+                        break;
+                    case 5:
+                        sites.add(new WeatherGismeteo());
+                        break;
+                    default:
+                        System.out.println("Wszystkie strony zablokowane!");
+                }
+            }
+        }
+
+        return sites;
     }
 }

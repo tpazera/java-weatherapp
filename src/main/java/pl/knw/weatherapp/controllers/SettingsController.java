@@ -53,11 +53,11 @@ public class SettingsController implements Initializable {
         for(int i = 0; i < togglebuttons.size(); i++) {
             if(sitesSettings[i] == 1) {
                 togglebuttons.get(i).setSelected(false);
-                togglebuttons.get(i).setText("Wyłącz pobieranie z tej strony" + " " + sitesSettings[i]);
+                togglebuttons.get(i).setText("Wyłącz pobieranie z tej strony");
                 togglebuttons.get(i).getStyleClass().add("notselected");
             } else {
                 togglebuttons.get(i).setSelected(true);
-                togglebuttons.get(i).setText("Włącz pobieranie z tej strony" + " " + sitesSettings[i]);
+                togglebuttons.get(i).setText("Włącz pobieranie z tej strony");
                 togglebuttons.get(i).getStyleClass().add("selected");
             }
             final int finalI = i;
@@ -66,13 +66,13 @@ public class SettingsController implements Initializable {
                     if(sitesSettings[finalI] == 1) {
                         sitesSettings[finalI] = 0;
                         togglebuttons.get(finalI).setSelected(false);
-                        togglebuttons.get(finalI).setText("Włącz pobieranie z tej strony" + " " + sitesSettings[finalI]);
+                        togglebuttons.get(finalI).setText("Włącz pobieranie z tej strony");
                         togglebuttons.get(finalI).getStyleClass().remove("notselected");
                         togglebuttons.get(finalI).getStyleClass().add("selected");
                     } else {
                         sitesSettings[finalI] = 1;
                         togglebuttons.get(finalI).setSelected(true);
-                        togglebuttons.get(finalI).setText("Wyłącz pobieranie z tej strony" + " " + sitesSettings[finalI]);
+                        togglebuttons.get(finalI).setText("Wyłącz pobieranie z tej strony");
                         togglebuttons.get(finalI).getStyleClass().remove("selected");
                         togglebuttons.get(finalI).getStyleClass().add("notselected");
                     }

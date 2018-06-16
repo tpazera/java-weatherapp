@@ -83,6 +83,7 @@ public class WeatherPogodaNet extends Sites {
     }
 
     public String getCurrentImage() {
+
         String imageUrl;
         try {
             Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-0.col-xs-10.col-xs-offset-1 > div > img").first();

@@ -51,11 +51,15 @@ public class MainModel {
         return locationInfo;
     }
 
-    public ActualWeatherDescription getCurrentWeather() {
-        ActualWeatherDescription actualWeather = new ActualWeatherDescription();
+    public OWMWeatherDesc getDataFromOWM() {
+        OWMWeatherDesc actualWeather = new OWMWeatherDesc();
         System.out.println("Aktualna pogoda: " + actualWeather);
-
         return actualWeather;
+    }
+
+    public YahooWeatherDesc getDataFromYahoo() {
+        YahooWeatherDesc yahooweather = new YahooWeatherDesc();
+        return yahooweather;
     }
 
     public static String getIp() {

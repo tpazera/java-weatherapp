@@ -11,6 +11,7 @@ public class ForecastModel {
     public ForecastModel(int s) {
         if (s == 0) site = new Site("openweathermap", new OWMFactory());
         else site = new Site("yahoo", new OWMFactory());
+
     }
 
     public ArrayList<String> getTemperatures() {

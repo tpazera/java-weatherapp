@@ -1,14 +1,39 @@
 package pl.knw.weatherapp.models.forecast;
 
+import pl.knw.weatherapp.models.forecast.owm.OWMFactory;
+
+import java.util.ArrayList;
+
 public class ForecastModel {
 
-    public ForecastModel() {
-        Site site;
-        site = new Site("wp", new WpFactory());
-        WeeklyTemperature wp = site.days;
-        System.out.println(wp.getFirstTemperature());
-        Temperatures10Days wp2 = site.images;
-        System.out.println(wp2.getFirstImage());
+    Site site;
+
+    public ForecastModel(int s) {
+        if (s == 0) site = new Site("owm", new OWMFactory());
+        else site = new Site("yahoo", new OWMFactory());
     }
+
+    public ArrayList<String> getTemperatures() {
+        Temperatures10Days average = site.average;
+        return average.getArray();
+    }
+
+    public ArrayList<String> getMinTemperatures() {
+        Site site;
+        site = new Site("owm", new OWMFactory());
+        MinTemperature10Days average = site.min;
+        return average.getArray();
+    }
+
+    public ArrayList<String> getMaxTemperatures() {
+        MaxTemperature10Days average = site.max;
+        return average.getArray();
+    }
+
+    public ArrayList<String> getWeatherCodes() {
+        WeatherCode10Days average = site.code;
+        return average.getArray();
+    }
+
 
 }

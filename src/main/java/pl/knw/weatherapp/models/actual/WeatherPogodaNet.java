@@ -46,8 +46,14 @@ public class WeatherPogodaNet extends Sites {
     }
 
     public String getCurrentTemperature() {
-        Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(6) > strong").first();
-        String temperature = tag.text();
+        String temperature;
+        try {
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(6) > strong").first();
+            temperature = tag.text();
+            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            temperature = "-";
+        }
         return temperature;
     }
 
@@ -77,18 +83,13 @@ public class WeatherPogodaNet extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
-        Document doc = null;
+        String imageUrl;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .get();
             Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-0.col-xs-10.col-xs-offset-1 > div > img").first();
             imageUrl = tag.attr("src");
             imageUrl = "http://pogoda.net/" + imageUrl;
-            System.out.println(imageUrl);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            imageUrl = "default";
         }
         return imageUrl;
     }

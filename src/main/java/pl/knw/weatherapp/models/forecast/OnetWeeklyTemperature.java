@@ -12,11 +12,11 @@ import java.util.Map;
 public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     public String siteLink;
+    public Document doc;
 
     public OnetWeeklyTemperature() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[Onet] Getting address from google search...");
-        Document doc;
         String url = "https://www.google.pl/search?q=onet+pogoda+dlugoterminowa" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,6 +28,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
                 siteLink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(siteLink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -35,17 +39,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getFirstTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -54,17 +51,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getSecondTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -73,17 +63,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getThirdTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -92,17 +75,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getFourthTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -111,17 +87,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getFifthTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -130,17 +99,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getSixthTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -149,17 +111,10 @@ public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     @Override
     public String getSeventhTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(siteLink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-        } catch (IOException e) {
-            temperature = "-";
         } catch (Exception e) {
             temperature = "-";
         }

@@ -1,10 +1,13 @@
 package pl.knw.weatherapp.models.actual;
 
-import geb.Browser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 import java.io.IOException;
@@ -36,16 +39,6 @@ public class WeatherExample extends Sites {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        WebDriver browser = new FirefoxDriver();
-
-        //Firefox's proxy driver executable is in a folder already
-        //  on the host system's PATH environment variable.
-        browser.get("http://saucelabs.com");
-        WebElement header = browser.findElement(By.id("page-header"));
-        assertTrue((header.isDisplayed()));
-
-        browser.close();
-    }
     }
 
     //Link:

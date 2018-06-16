@@ -46,8 +46,14 @@ public class WeatherOnet extends Sites {
     }
 
     public String getCurrentTemperature() {
-        Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
-        String temperature = tag.text();
+        String temperature;
+        try {
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
+            temperature = tag.text();
+            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            temperature = "-";
+        }
         return temperature;
     }
 
@@ -77,18 +83,13 @@ public class WeatherOnet extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
-        Document doc = null;
+        String imageUrl;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .get();
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.forecast > span > img").first();
             imageUrl = tag.attr("src");
             imageUrl = "http:" + imageUrl;
-            System.out.println(imageUrl);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            imageUrl = "default";
         }
         return imageUrl;
     }

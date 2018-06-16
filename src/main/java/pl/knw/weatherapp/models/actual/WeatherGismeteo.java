@@ -46,9 +46,13 @@ public class WeatherGismeteo extends Sites {
     }
 
     public String getCurrentTemperature() {
-        Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
-        String temperature = tag.text();
-        temperature = temperature.substring(0,temperature.length()-1);
+        String temperature;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            temperature = tag.text();
+        } catch (Exception e) {
+            temperature = "-";
+        }
         return temperature;
     }
 
@@ -78,18 +82,13 @@ public class WeatherGismeteo extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
-        Document doc = null;
+        String imageUrl;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .get();
             Element tag = doc.select("#weather > div.fcontent > div.section.higher > dl > dt").first();
             imageUrl = tag.attr("style");
             imageUrl = "https:" + imageUrl.substring(imageUrl.indexOf("//"), imageUrl.indexOf(")"));
-            System.out.println(imageUrl);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            imageUrl = "default";
         }
         return imageUrl;
     }

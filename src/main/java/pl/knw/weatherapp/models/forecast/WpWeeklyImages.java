@@ -12,11 +12,11 @@ import java.util.Map;
 public class WpWeeklyImages implements WeeklyImages {
 
     public String siteLink;
+    public Document doc;
 
     public WpWeeklyImages() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[WP.pl] Images: Getting address from google search...");
-        Document doc;
         String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,9 +28,14 @@ public class WpWeeklyImages implements WeeklyImages {
                 siteLink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(siteLink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
     @Override

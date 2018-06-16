@@ -51,9 +51,14 @@ public class WeatherWP extends Sites {
     }
 
     public String getCurrentTemperature() {
-        Element tag = doc.select("body > div.static > span:nth-child(4)").first();
-        String temperature = tag.text();
-        temperature = temperature.substring(13,temperature.length()-1); //obcinam "Temperature: "
+        String temperature;
+        try {
+            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            temperature = tag.text();
+            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            temperature = "-";
+        }
         return temperature;
     }
 
@@ -83,7 +88,7 @@ public class WeatherWP extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
+        String imageUrl = "default";
         System.out.println(imageUrl);
         return imageUrl;
     }

@@ -6,6 +6,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
+import java.beans.ExceptionListener;
 import java.io.IOException;
 
 public class WeatherForeca extends Sites {
@@ -46,8 +47,13 @@ public class WeatherForeca extends Sites {
     }
 
     public String getCurrentTemperature() {
-        Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
-        String temperature = tag.text();
+        String temperature;
+        try {
+            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            temperature = tag.text();
+        } catch (Exception e) {
+            temperature = "-";
+        }
         return temperature;
     }
 
@@ -77,18 +83,12 @@ public class WeatherForeca extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
-        Document doc = null;
+        String imageUrl;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .get();
             Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.symb > img").first();
-            imageUrl = tag.attr("src");
-            imageUrl = "http:" + imageUrl;
-            System.out.println(imageUrl);
-        } catch (IOException e) {
-            e.printStackTrace();
+            imageUrl = tag.text();
+        } catch (Exception e) {
+            imageUrl = "default";
         }
         return imageUrl;
     }

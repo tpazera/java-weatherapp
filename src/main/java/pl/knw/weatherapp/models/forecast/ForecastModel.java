@@ -9,7 +9,7 @@ public class ForecastModel {
     Site site;
 
     public ForecastModel(int s) {
-        if (s == 0) site = new Site("owm", new OWMFactory());
+        if (s == 0) site = new Site("openweathermap", new OWMFactory());
         else site = new Site("yahoo", new OWMFactory());
     }
 
@@ -19,8 +19,6 @@ public class ForecastModel {
     }
 
     public ArrayList<String> getMinTemperatures() {
-        Site site;
-        site = new Site("owm", new OWMFactory());
         MinTemperature10Days average = site.min;
         return average.getArray();
     }

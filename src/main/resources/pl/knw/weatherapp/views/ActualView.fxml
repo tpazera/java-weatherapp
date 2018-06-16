@@ -12,11 +12,12 @@
 
 <AnchorPane fx:id="rootPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main_panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.knw.weatherapp.controllers.ActualController">
    <children>
-      <ScrollPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fx:id="actual_scroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="907.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
-            <AnchorPane fx:id="main_anchor" prefHeight="582.0" prefWidth="1350.0" styleClass="main_anchor">
+            <AnchorPane fx:id="main_anchor" minWidth="899.0" prefHeight="580.0" prefWidth="900.0" styleClass="main_anchor">
                <children>
-                  <GridPane fx:id="gridpane1" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <ImageView fx:id="background_view" fitHeight="582.0" fitWidth="1350.0" pickOnBounds="true" preserveRatio="true" />
+                  <GridPane fx:id="gridpane1" layoutX="7.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
@@ -39,7 +40,7 @@
                         <Label fx:id="rain1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane2" layoutX="232.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane2" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -62,7 +63,7 @@
                         <Label fx:id="rain2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane3" layoutX="450.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane3" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -85,7 +86,7 @@
                         <Label fx:id="rain3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane4" layoutX="668.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane4" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -108,7 +109,7 @@
                         <Label fx:id="rain4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane5" layoutX="886.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane5" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>
@@ -131,7 +132,7 @@
                         <Label fx:id="rain5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane6" layoutX="1104.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane6" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>

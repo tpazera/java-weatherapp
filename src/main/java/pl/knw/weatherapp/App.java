@@ -42,6 +42,7 @@ public class App extends Application {
         rootScene.setFill(Color.TRANSPARENT);
         System.out.println(properties.get("style"));
         primaryStage.setScene(rootScene);
+        primaryStage.setResizable(false);
         //primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.show();
     }

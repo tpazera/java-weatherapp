@@ -54,7 +54,7 @@ public class MainController implements Initializable {
 
         ActualWeatherDescription weatherParams = model.getCurrentWeather();
         properties.put("weathercondition", weatherParams.getIconName());
-        properties.put("weathercondition", "01d");
+        //properties.put("weathercondition", "50d");
         //KASIA - TUTAJ MASZ AKTUALNĄ POGODĘ - KLASA ActualWeatherDescription()
         //używaj getterów i setterów do wpisywania do labeli, np:
         //Lista parametrów: data, maksymalna temperatura, minimalna temperatura, średnia temperatura,

@@ -26,10 +26,11 @@ public class YahooTemperatures10Days implements Temperatures10Days {
             jo = (JSONObject) ja.get(i);
             String tmp = jo.get("low").toString();
             double ftoc = (Integer.parseInt(tmp) - 32) * 5.0/9.0;
-            String tmp2 = jo.get("high").toString();
+            tmp = jo.get("high").toString();
             double ftoc2 = (Integer.parseInt(tmp) - 32) * 5.0/9.0;
-            map.put(String.valueOf(i), String.valueOf(((ftoc2+ftoc)/2)));
-            array.add(String.valueOf(ftoc));
+            tmp = String.valueOf(((ftoc2+ftoc)/2));
+            map.put(String.valueOf(i), tmp);
+            array.add(tmp);
         }
     }
 

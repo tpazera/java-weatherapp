@@ -2,9 +2,12 @@ package pl.knw.weatherapp.models.main;
 
 import net.aksingh.owmjapis.DailyForecast;
 import net.aksingh.owmjapis.OpenWeatherMap;
+import org.json.simple.JSONObject;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class ActualWeatherDescription {
 
@@ -32,10 +35,11 @@ public class ActualWeatherDescription {
         OpenWeatherMap owm = new OpenWeatherMap(units, (String) properties.get("api"));
         DailyForecast forecast;
         try {
-            forecast = owm.dailyForecastByCityName(weatherCity, (byte) 1);  //1 - tylko dzisiaj
+            forecast = owm.dailyForecastByCityName(weatherCity, (byte) 11);
             DailyForecast.Forecast dayForecast = forecast.getForecastInstance(0);
             DailyForecast.Forecast.Temperature temperature = dayForecast.getTemperatureInstance();
             DailyForecast.Forecast.Weather weather = dayForecast.getWeatherInstance(0);
+            properties.put("forecast", forecast);
             this.DateInformations = String.valueOf(dayForecast.getDateTime());
             this.Datetemperature = temperature.getDayTemperature() + DEGREE + "C";
             this.MaxTemperature = temperature.getMinimumTemperature() + DEGREE + "C";
@@ -47,6 +51,19 @@ public class ActualWeatherDescription {
             this.Description = weather.getWeatherDescription();
             this.WeatherCode = weather.getWeatherCode();
             this.IconName = weather.getWeatherIconName();
+            JSONObject forecastJson = new JSONObject();
+            for (int i = 0; i < 10; i++) {
+                Map m = new LinkedHashMap(4);
+                dayForecast = forecast.getForecastInstance(i);
+                temperature = dayForecast.getTemperatureInstance();
+                weather = dayForecast.getWeatherInstance(0);
+                m.put("average", temperature.getDayTemperature());
+                m.put("min", temperature.getMinimumTemperature());
+                m.put("max", temperature.getMaximumTemperature());
+                m.put("code", weather.getWeatherCode());
+                forecastJson.put(i, m);
+            }
+            properties.put("forecastjson", forecastJson);
         } catch (IOException e) {
             e.printStackTrace();
         }

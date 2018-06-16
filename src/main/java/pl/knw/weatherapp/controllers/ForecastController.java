@@ -19,7 +19,8 @@ public class ForecastController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ForecastModel model = new ForecastModel();
+        ForecastModel model = new ForecastModel(0);
+        System.out.println(model.getMaxTemperatures());
 
     }
 

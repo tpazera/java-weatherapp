@@ -19,8 +19,10 @@ public class ForecastController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        ForecastModel model = new ForecastModel(0);
-        System.out.println(model.getMaxTemperatures());
+        ForecastModel model1 = new ForecastModel(0);
+        System.out.println(model1.getMaxTemperatures());
+        ForecastModel model2 = new ForecastModel(1);
+        System.out.println(model2.getMaxTemperatures());
     }
 
     public void goToMainPage(ActionEvent actionEvent) throws IOException {

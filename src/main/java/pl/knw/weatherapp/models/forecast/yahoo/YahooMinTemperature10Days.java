@@ -1,5 +1,6 @@
 package pl.knw.weatherapp.models.forecast.yahoo;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import pl.knw.weatherapp.models.forecast.MinTemperature10Days;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
@@ -15,13 +16,19 @@ public class YahooMinTemperature10Days implements MinTemperature10Days {
 
     public YahooMinTemperature10Days() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        Object forecastJson = properties.get("forecastjson");
+        Object forecastJson = properties.get("yahoojson");
         JSONObject jo = (JSONObject) forecastJson;
-        for(int i = 0; i < 10; i++) {
-            Map m = (Map) jo.get(i);
-            String tmp = m.get("average").toString();
-            map.put(String.valueOf(i), tmp);
-            array.add(tmp);
+        jo = (JSONObject) jo.get("query");
+        jo = (JSONObject) jo.get("results");
+        jo = (JSONObject) jo.get("channel");
+        jo = (JSONObject) jo.get("item");
+        JSONArray ja = (JSONArray) jo.get("forecast");
+        for (int i = 0; i < ja.size(); i++) {
+            jo = (JSONObject) ja.get(i);
+            String tmp = jo.get("low").toString();
+            double ftoc = (Integer.parseInt(tmp) - 32) * 5.0/9.0;
+            map.put(String.valueOf(i), String.valueOf(ftoc));
+            array.add(String.valueOf(ftoc));
         }
     }
 

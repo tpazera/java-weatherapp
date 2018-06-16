@@ -27,8 +27,9 @@ public class YahooMinTemperature10Days implements MinTemperature10Days {
             jo = (JSONObject) ja.get(i);
             String tmp = jo.get("low").toString();
             double ftoc = (Integer.parseInt(tmp) - 32) * 5.0/9.0;
-            map.put(String.valueOf(i), String.valueOf(ftoc));
-            array.add(String.valueOf(ftoc));
+            tmp = String.valueOf(ftoc);
+            map.put(String.valueOf(i), tmp);
+            array.add(tmp);
         }
     }
 

@@ -28,8 +28,9 @@ public class YahooMaxTemperature10Days implements MaxTemperature10Days {
             jo = (JSONObject) ja.get(i);
             String tmp = jo.get("high").toString();
             double ftoc = (Integer.parseInt(tmp) - 32) * 5.0/9.0;
-            map.put(String.valueOf(i), String.valueOf(ftoc));
-            array.add(String.valueOf(ftoc));
+            tmp = String.valueOf(ftoc);
+            map.put(String.valueOf(i), tmp);
+            array.add(tmp);
         }
     }
 

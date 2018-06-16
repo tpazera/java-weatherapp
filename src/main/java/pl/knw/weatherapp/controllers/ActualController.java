@@ -8,10 +8,12 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.actual.ActualModel;
 import pl.knw.weatherapp.models.actual.Sites;
@@ -50,7 +52,7 @@ public class ActualController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         ProjectProperties properties = ProjectProperties.getInstance();
-        background_view.setImage(new Image(getClass().getResourceAsStream("../images/weather-bg/bg"+properties.get("weathercondition")+".png"), 1400, 600, false, false));
+        background_view.setImage(new Image(getClass().getResourceAsStream("../images/weather-bg/bg"+properties.get("weathercondition")+".jpg"), 1400, 600, false, false));
         fillListWithObjects();
 
         ActualModel model = new ActualModel();
@@ -60,14 +62,18 @@ public class ActualController implements Initializable {
         int numberOfGridPane = iterator.size();
         Sites site;
 
+        DropShadow ds = new DropShadow();
+        ds.setOffsetY(2.0f);
+        ds.setColor(Color.color(0.1f, 0.1f, 0.1f));
+
         int i = 0;
         while (iterator.hasNext()) {
             gridpanes.get(i).getStyleClass().clear();
             BackgroundImage img1= new BackgroundImage(new Image(getClass().getResourceAsStream("../images/transparent-background-1.png"),32,32,false,true),
-                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
                     BackgroundSize.DEFAULT);
             BackgroundImage img2= new BackgroundImage(new Image(getClass().getResourceAsStream("../images/transparent-background-2.png"),32,32,false,true),
-                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.DEFAULT,
+                    BackgroundRepeat.REPEAT, BackgroundRepeat.REPEAT, BackgroundPosition.CENTER,
                     BackgroundSize.DEFAULT);
             if(i%2 == 0) {
                 gridpanes.get(i).setBackground(new Background(img1));
@@ -88,6 +94,19 @@ public class ActualController implements Initializable {
                 double posx = 14 + i * 218;
                 gridpanes.get(i).setLayoutX(posx);
             }
+
+            temperature_labels.get(i).setEffect(ds);
+            temperature_labels.get(i).setCache(true);
+            wind_labels.get(i).setEffect(ds);
+            wind_labels.get(i).setCache(true);
+            pressure_labels.get(i).setEffect(ds);
+            pressure_labels.get(i).setCache(true);
+            cloudy_labels.get(i).setEffect(ds);
+            cloudy_labels.get(i).setCache(true);
+            humidity_labels.get(i).setEffect(ds);
+            humidity_labels.get(i).setCache(true);
+            rain_labels.get(i).setEffect(ds);
+            rain_labels.get(i).setCache(true);
 
             site = (Sites) iterator.next();
             temperature_labels.get(i).setText("Temperatura: " + site.getCurrentTemperature());

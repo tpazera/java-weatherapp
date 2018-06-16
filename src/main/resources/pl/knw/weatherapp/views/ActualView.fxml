@@ -12,7 +12,7 @@
 
 <AnchorPane fx:id="rootPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main_panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.knw.weatherapp.controllers.ActualController">
    <children>
-      <ScrollPane fx:id="actual_scroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="907.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ScrollPane fx:id="actual_scroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <content>
             <AnchorPane fx:id="main_anchor" minWidth="899.0" prefHeight="580.0" prefWidth="900.0" styleClass="main_anchor">
                <children>
@@ -31,7 +31,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fx:id="img1" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img1" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
@@ -54,7 +54,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fx:id="img2" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img2" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
@@ -77,7 +77,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fx:id="img3" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img3" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
@@ -100,7 +100,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fx:id="img4" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img4" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
@@ -123,7 +123,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fx:id="img5" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img5" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
@@ -146,7 +146,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <ImageView fx:id="img6" fitHeight="130.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <ImageView fx:id="img6" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
                         <Label fx:id="temperature6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
                         <Label fx:id="wind6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
                         <Label fx:id="pressure6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />

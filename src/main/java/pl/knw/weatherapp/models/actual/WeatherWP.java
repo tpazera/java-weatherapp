@@ -12,11 +12,11 @@ public class WeatherWP extends Sites {
 
     private static final String DEGREE = "\u00b0";
     public String weatherlink;
+    public Document doc;
 
     public WeatherWP() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[WP.pl] Getting address from google search...");
-        Document doc;
         String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,6 +28,10 @@ public class WeatherWP extends Sites {
                 weatherlink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(weatherlink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -47,18 +51,13 @@ public class WeatherWP extends Sites {
     }
 
     public String getCurrentTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("body > div.static > span:nth-child(4)").first();
             temperature = tag.text();
-            temperature = temperature.substring(13,temperature.length()-1); //obcinam "Temperature: "
-        } catch (IOException e) {
-            e.printStackTrace();
+            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            temperature = "-";
         }
         return temperature;
     }
@@ -89,7 +88,7 @@ public class WeatherWP extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
+        String imageUrl = "default";
         System.out.println(imageUrl);
         return imageUrl;
     }

@@ -12,11 +12,11 @@ public class WeatherInteria extends Sites {
 
     private static final String DEGREE = "\u00b0";
     public String weatherlink;
+    public Document doc;
 
     public WeatherInteria() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[Interia] Getting address from google search...");
-        Document doc;
         String url = "https://www.google.pl/search?q=interia+pogoda+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,6 +28,10 @@ public class WeatherInteria extends Sites {
                 weatherlink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(weatherlink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -44,18 +48,13 @@ public class WeatherInteria extends Sites {
     }
 
     public String getCurrentTemperature() {
-        String temperature = null;
-        Document doc = null;
+        String temperature;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
             Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > div.weather-currently-temp > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(0,temperature.length()-1);
-        } catch (IOException e) {
-            e.printStackTrace();
+            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            temperature = "-";
         }
         return temperature;
     }
@@ -86,19 +85,14 @@ public class WeatherInteria extends Sites {
     }
 
     public String getCurrentImage() {
-        String imageUrl = "<DEFAULT IMAGE>";
-        Document doc = null;
+        String imageUrl;
         try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .get();
             Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > div.weather-currently-icon").first();
             imageUrl = tag.attr("class");
             imageUrl = String.valueOf(Integer.parseInt(imageUrl.replaceAll("[\\D]", "")));
             imageUrl = "https://d.iplsc.com/weather/svg-icons/" + imageUrl + ".svg";
-            System.out.println(imageUrl);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            imageUrl = "default";
         }
         return imageUrl;
     }

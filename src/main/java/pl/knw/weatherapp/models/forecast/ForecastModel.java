@@ -1,6 +1,7 @@
 package pl.knw.weatherapp.models.forecast;
 
 import pl.knw.weatherapp.models.forecast.owm.OWMFactory;
+import pl.knw.weatherapp.models.forecast.yahoo.YahooFactory;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,7 @@ public class ForecastModel {
 
     public ForecastModel(int s) {
         if (s == 0) site = new Site("openweathermap", new OWMFactory());
-        else site = new Site("yahoo", new OWMFactory());
+        else site = new Site("yahoo", new YahooFactory());
 
     }
 

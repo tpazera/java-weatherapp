@@ -12,11 +12,11 @@ public class WeatherOnet extends Sites {
 
     private static final String DEGREE = "\u00b0";
     public String weatherlink;
+    public Document doc;
 
     public WeatherOnet() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[Onet] Getting address from google search...");
-        Document doc;
         String url = "https://www.google.pl/search?q=onet+pogoda+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,6 +28,10 @@ public class WeatherOnet extends Sites {
                 weatherlink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(weatherlink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,18 +46,8 @@ public class WeatherOnet extends Sites {
     }
 
     public String getCurrentTemperature() {
-        String temperature = null;
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
-            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
-            temperature = tag.text();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
+        String temperature = tag.text();
         return temperature;
     }
 

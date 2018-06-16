@@ -12,11 +12,11 @@ public class WeatherForeca extends Sites {
 
     private static final String DEGREE = "\u00b0";
     public String weatherlink;
+    public Document doc;
 
     public WeatherForeca() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[Foreca] Getting address from google search...");
-        Document doc;
+        System.out.println("[Foreca] Getting html code...");
         String url = "https://www.google.pl/search?q=foreca.pl+pogoda+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
@@ -28,6 +28,10 @@ public class WeatherForeca extends Sites {
                 weatherlink = link.attr("href");
                 break;
             }
+            doc = Jsoup.connect(weatherlink)
+                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
+                    .timeout(0)
+                    .get();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,18 +46,8 @@ public class WeatherForeca extends Sites {
     }
 
     public String getCurrentTemperature() {
-        String temperature = null;
-        Document doc = null;
-        try {
-            doc = Jsoup.connect(weatherlink)
-                    .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
-                    .timeout(0)
-                    .get();
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
-            temperature = tag.text();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+        String temperature = tag.text();
         return temperature;
     }
 

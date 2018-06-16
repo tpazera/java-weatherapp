@@ -1,42 +1,26 @@
 package pl.knw.weatherapp.models.forecast.owm;
 
-import net.aksingh.owmjapis.DailyForecast;
-import net.aksingh.owmjapis.OpenWeatherMap;
-import org.json.JSONException;
+import org.json.simple.JSONObject;
 import pl.knw.weatherapp.models.forecast.Temperatures10Days;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
-import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 public class OWMTemperatures10Days implements Temperatures10Days {
-    public ArrayList<String> array;
-    public Map<String, String> map;
+    public ArrayList<String> array = new ArrayList<>();
+    public Map<String, String> map = new HashMap<>();
 
     public OWMTemperatures10Days() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        String forecastJson = (String) properties.get("forecastjson");
-        System.out.println(forecastJson);
-    }
-
-    private String getShortDay(String dateTime) {
-        dateTime = dateTime.substring(0,3);
-        switch(dateTime) {
-            case "Mon":
-                return "PON";
-            case "Tue":
-                return "WTO";
-            case "Wed":
-                return "ŚRO";
-            case "Thu":
-                return "CZW";
-            case "Fri":
-                return "PT";
-            case "Sat":
-                return "SOB";
-            default:
-                return "NIE";
+        Object forecastJson = properties.get("forecastjson");
+        JSONObject jo = (JSONObject) forecastJson;
+        for(int i = 0; i < 10; i++) {
+            Map m = (Map) jo.get(i);
+            String tmp = m.get("average").toString();
+            map.put(String.valueOf(i), tmp);
+            array.add(tmp);
         }
     }
 

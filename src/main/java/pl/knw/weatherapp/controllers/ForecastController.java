@@ -21,7 +21,6 @@ public class ForecastController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         ForecastModel model = new ForecastModel(0);
         System.out.println(model.getMaxTemperatures());
-
     }
 
     public void goToMainPage(ActionEvent actionEvent) throws IOException {

@@ -6,7 +6,7 @@ public class ForecastModel {
         Site site;
         site = new Site("wp", new WpFactory());
         WeeklyTemperature wp = site.days;
-        System.out.println(wp.getThirdTemperature());
+        System.out.println(wp.getFifthTemperature());
     }
 
 }

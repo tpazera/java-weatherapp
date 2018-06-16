@@ -15,7 +15,7 @@ public class WpWeeklyImages implements WeeklyImages {
 
     public WpWeeklyImages() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[WP.pl] Getting address from google search...");
+        System.out.println("[WP.pl] Images: Getting address from google search...");
         Document doc;
         String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
         try {
@@ -70,6 +70,11 @@ public class WpWeeklyImages implements WeeklyImages {
 
     @Override
     public Map<String, String> getAllImages() {
+        return null;
+    }
+
+    public String getImageName(String className) {
+
         return null;
     }
 }

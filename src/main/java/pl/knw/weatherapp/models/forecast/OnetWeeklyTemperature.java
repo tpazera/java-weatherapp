@@ -9,15 +9,15 @@ import pl.knw.weatherapp.models.settings.ProjectProperties;
 import java.io.IOException;
 import java.util.Map;
 
-public class WpWeeklyTemperature implements WeeklyTemperature {
+public class OnetWeeklyTemperature implements WeeklyTemperature {
 
     public String siteLink;
 
-    public WpWeeklyTemperature() {
+    public OnetWeeklyTemperature() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[WP.pl] Temperature: Getting address from google search...");
+        System.out.println("[Onet] Getting address from google search...");
         Document doc;
-        String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
+        String url = "https://www.google.pl/search?q=onet+pogoda+dlugoterminowa" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
@@ -42,9 +42,8 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("body > div.static > span:nth-child(5)").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (IOException e) {
             temperature = "-";
         } catch (Exception e) {
@@ -62,9 +61,8 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("body > div.static > span:nth-child(13)").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (IOException e) {
             temperature = "-";
         } catch (Exception e) {
@@ -82,9 +80,8 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("body > div.static > span:nth-child(21)").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (IOException e) {
             temperature = "-";
         } catch (Exception e) {
@@ -102,9 +99,8 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("body > div.static > span:nth-child(29)").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (IOException e) {
             temperature = "-";
         } catch (Exception e) {
@@ -122,7 +118,7 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("#Pogoda > div.nW > ul > li:nth-child(5) > div.dT").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
         } catch (IOException e) {
             temperature = "-";
@@ -141,7 +137,7 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("#Pogoda > div.nW > ul > li:nth-child(6) > div.dT").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
         } catch (IOException e) {
             temperature = "-";
@@ -160,7 +156,7 @@ public class WpWeeklyTemperature implements WeeklyTemperature {
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")
                     .timeout(0)
                     .get();
-            Element tag = doc.select("#Pogoda > div.nW > ul > li:nth-child(7) > div.dT").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.timelineBox.widgetLeftCol.activeTab_1 > div > div.longTermWeather.tab_1.tabPanel.gtm_mainWidget_timelineLongTerm.showButtons.showScrollbar.showGradient > div.timelineListHolder > div.timelineListWrapper.swiper-container.swiper-container-horizontal > ul > li.item.swiper-slide.swiper-slide-active > div > div.temperature > div").first();
             temperature = tag.text();
         } catch (IOException e) {
             temperature = "-";

@@ -9,15 +9,15 @@ import pl.knw.weatherapp.models.settings.ProjectProperties;
 import java.io.IOException;
 import java.util.Map;
 
-public class WpWeeklyImages implements WeeklyImages {
+public class OnetWeeklyImages implements WeeklyImages {
 
     public String siteLink;
 
-    public WpWeeklyImages() {
+    public OnetWeeklyImages() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[WP.pl] Images: Getting address from google search...");
+        System.out.println("[Onet] Getting address from google search...");
         Document doc;
-        String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
+        String url = "https://www.google.pl/search?q=onet+pogoda+dlugoterminowa" + properties.get("city");
         try {
             doc = Jsoup.connect(url)
                     .userAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36")

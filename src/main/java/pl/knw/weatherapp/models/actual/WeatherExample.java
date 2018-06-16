@@ -1,5 +1,6 @@
 package pl.knw.weatherapp.models.actual;
 
+import geb.Browser;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -35,7 +36,6 @@ public class WeatherExample extends Sites {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     //Link:

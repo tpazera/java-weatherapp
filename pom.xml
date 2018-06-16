@@ -52,22 +52,13 @@
             <artifactId>jsoup</artifactId>
             <version>1.9.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.gebish/geb-core/2.1 -->
+        <!-- https://mvnrepository.com/artifact/com.codeborne/phantomjsdriver -->
         <dependency>
-            <groupId>org.gebish</groupId>
-            <artifactId>geb-core</artifactId>
-            <version>2.1</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.4.4</version>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-firefox-driver</artifactId>
-            <version>3.6.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>3.6.0</version>
-        </dependency>
+
 
     </dependencies>
 

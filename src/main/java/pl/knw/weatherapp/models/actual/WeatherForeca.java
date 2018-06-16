@@ -86,7 +86,8 @@ public class WeatherForeca extends Sites {
         String imageUrl;
         try {
             Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.symb > img").first();
-            imageUrl = tag.text();
+            imageUrl = tag.attr("src");
+            imageUrl = "http:" + imageUrl;
         } catch (Exception e) {
             imageUrl = "default";
         }

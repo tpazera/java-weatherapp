@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ActualWeatherDescription {
+public class OWMWeatherDesc {
 
     private static final String DEGREE = "\u00b0";
 
@@ -25,7 +25,7 @@ public class ActualWeatherDescription {
     private int WeatherCode;
     private String IconName;
 
-    public ActualWeatherDescription() {
+    public OWMWeatherDesc() {
         ProjectProperties properties = ProjectProperties.getInstance();
         String weatherCity = properties.get("city")+","+properties.get("countrycode");
         boolean isMetric = true;

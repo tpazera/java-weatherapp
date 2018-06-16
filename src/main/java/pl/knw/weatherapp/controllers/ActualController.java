@@ -1,11 +1,9 @@
 package pl.knw.weatherapp.controllers;
 
-import javafx.beans.binding.DoubleBinding;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.effect.DropShadow;
@@ -13,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.actual.ActualModel;
 import pl.knw.weatherapp.models.actual.Sites;

@@ -6,24 +6,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import pl.knw.weatherapp.models.main.ActualWeatherDescription;
+import pl.knw.weatherapp.models.main.OWMWeatherDesc;
 import pl.knw.weatherapp.models.main.MainModel;
+import pl.knw.weatherapp.models.main.YahooWeatherDesc;
 import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 
-import javax.swing.text.html.ImageView;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 public class MainController implements Initializable {
 
@@ -52,10 +48,11 @@ public class MainController implements Initializable {
             properties.put("api", "305be23140a9d5d08890247143be3227");
         }
 
-        ActualWeatherDescription weatherParams = model.getCurrentWeather();
+        OWMWeatherDesc weatherParams = model.getDataFromOWM();
+        YahooWeatherDesc yahoo = model.getDataFromYahoo();
         properties.put("weathercondition", weatherParams.getIconName());
         //properties.put("weathercondition", "50d");
-        //KASIA - TUTAJ MASZ AKTUALNĄ POGODĘ - KLASA ActualWeatherDescription()
+        //KASIA - TUTAJ MASZ AKTUALNĄ POGODĘ - KLASA OWMWeatherDesc()
         //używaj getterów i setterów do wpisywania do labeli, np:
         //Lista parametrów: data, maksymalna temperatura, minimalna temperatura, średnia temperatura,
         //wilgotność, ciśnienie, zachmurzenie, prędkosć wiatru, opis, kod obrazka (zdj na dysku), kod pogody (link na strone)

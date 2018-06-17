@@ -86,15 +86,13 @@ public class ForecastController implements Initializable {
                             }
                         } else { //image
                             ImageView imgview = (ImageView) block_node;
-                            imgview.setImage(new Image(getClass().getResourceAsStream("../images/tiles/tile076.png"),25,25,true,true));
+                            imgview.setImage(new Image(getClass().getResourceAsStream("../images/tiles/tile0"+ 56 +".png"),25,25,true,true));
                         }
                         tmp++;
                     }
                     i++;
                 }
             }
-            ForecastModel model2 = new ForecastModel(1);
-            System.out.println(model2.getMaxTemperatures());
         }
 
     }

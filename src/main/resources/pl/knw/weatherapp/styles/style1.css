@@ -81,9 +81,23 @@
 }
 
 #forecastPane {
-    -fx-background-image: url("../images/weather-bg/bg02d.jpg");
+    -fx-background-image: url("../images/forecastbackground.jpg");
+}
+
+#forecastPane Label {
+    -fx-text-fill: white;
 }
 
 #owm_grid, #yahoo_grid {
+    -fx-background-image: url("../images/transparent-background-1.png");
+}
+
+#main_label {
+    -fx-background-image: url("../images/forecastlabel.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+#main_pane {
     -fx-background-image: url("../images/transparent-background-2.png");
 }

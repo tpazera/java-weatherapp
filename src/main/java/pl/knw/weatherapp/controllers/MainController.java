@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -28,6 +29,16 @@ public class MainController implements Initializable {
     public Map<String, String> locationParams;
     public Button actualButton;
     public Pane loading_img;
+    public Label min;
+    public Label max;
+    public Label avg;
+    public Label date;
+    public Label image;
+    public Label description;
+    public Label wind;
+    public Label clouds;
+    public Label pressure;
+    public Label humidity;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -51,17 +62,45 @@ public class MainController implements Initializable {
         OWMWeatherDesc weatherParams = model.getDataFromOWM();
         YahooWeatherDesc yahoo = model.getDataFromYahoo();
         properties.put("weathercondition", weatherParams.getIconName());
-        //properties.put("weathercondition", "50d");
-        //KASIA - TUTAJ MASZ AKTUALNĄ POGODĘ - KLASA OWMWeatherDesc()
-        //używaj getterów i setterów do wpisywania do labeli, np:
-        //Lista parametrów: data, maksymalna temperatura, minimalna temperatura, średnia temperatura,
-        //wilgotność, ciśnienie, zachmurzenie, prędkosć wiatru, opis, kod obrazka (zdj na dysku), kod pogody (link na strone)
-        //na podstawie kodu obrazka lub kodu pogody wyświetl odpowiedni obrazek
-        //fajnie by było też spolszczyć te opisy, czyli zrobić ify że gdy opis jest równy "clear sky" to wpisujesz do labela "Czyste niebo"
-        //wyświetl jakoś ładnie te wszystkie parametry
-        String windSpeed = weatherParams.getWind_Speed();
-        System.out.println(windSpeed);
-        //<TUTAJ WPISZ DO LABELA>
+        String windstring = weatherParams.getWind_Speed();
+        System.out.println(windstring);
+        wind.setText(windstring);
+
+        String avgtemperature = weatherParams.getDateTemperature();
+        System.out.println(avgtemperature);
+        avg.setText(avgtemperature);
+
+        String pressurestring = weatherParams.getPressure();
+        System.out.println(pressurestring);
+        pressure.setText(pressurestring);
+
+        String humiditystring = weatherParams.getHumidity();
+        System.out.println(humiditystring);
+        humidity.setText(humiditystring);
+
+        String cloudsstring = weatherParams.getClouds();
+        System.out.println(cloudsstring);
+        clouds.setText(cloudsstring);
+
+        String dateinformationsstring = weatherParams.getDateInformations();
+        System.out.println(dateinformationsstring);
+        date.setText(dateinformationsstring);
+
+        String maxstring = weatherParams.getMaxTemperature();
+        System.out.println(maxstring);
+        max.setText(maxstring);
+
+        String minstring = weatherParams.getMinTemperature();
+        System.out.println(minstring);
+        min.setText(minstring);
+
+        String descriptionstring = weatherParams.getDescription();
+        System.out.println(descriptionstring);
+        description.setText(descriptionstring);
+
+        String imagestring = weatherParams.getIconName();
+        System.out.println(imagestring);
+        image.setText(imagestring);
     }
 
     @FXML

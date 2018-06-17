@@ -63,7 +63,7 @@
                         <Label fx:id="rain2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
                      </children>
                   </GridPane>
-                  <GridPane fx:id="gridpane3" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                  <GridPane fx:id="gridpane3" layoutX="15.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                      </columnConstraints>

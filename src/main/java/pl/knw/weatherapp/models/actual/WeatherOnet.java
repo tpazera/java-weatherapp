@@ -50,7 +50,6 @@ public class WeatherOnet extends Sites {
         try {
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -60,9 +59,8 @@ public class WeatherOnet extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select(" ").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.weatherParams > ul > li:nth-child(2) > span.restParamValue").first();
             wind = tag.text();
-            wind = wind.substring(24,wind.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             wind = "-";
         }
@@ -72,9 +70,8 @@ public class WeatherOnet extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select(" ").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.weatherParams > ul > li:nth-child(3) > span.restParamValue").first();
             pressure = tag.text();
-            pressure = pressure.substring(24,pressure.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             pressure = "-";
         }
@@ -84,9 +81,8 @@ public class WeatherOnet extends Sites {
     public String getCurrentCloudy() {
         String cloudy;
         try {
-            Element tag = doc.select(" ").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.weatherParams > ul > li:nth-child(4) > span.restParamValue").first();
             cloudy = tag.text();
-            cloudy = cloudy.substring(24,cloudy.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             cloudy = "-";
         }
@@ -96,9 +92,8 @@ public class WeatherOnet extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select(" ").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.weatherParams > ul > li:nth-child(5) > span.restParamValue").first();
             humidity = tag.text();
-            humidity = humidity.substring(24,humidity.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             humidity = "-";
         }
@@ -108,9 +103,8 @@ public class WeatherOnet extends Sites {
     public String getCurrentRain() {
         String rain;
         try {
-            Element tag = doc.select(" ").first();
+            Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.weatherParams > ul > li:nth-child(1) > span.restParamValue").first();
             rain = tag.text();
-            rain = rain.substring(24,rain.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             rain = "-";
         }

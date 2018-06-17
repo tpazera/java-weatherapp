@@ -94,11 +94,9 @@ public class MainController implements Initializable {
 
         String descriptionstring = weatherParams.getDescription();
         System.out.println(descriptionstring);
-        description.setText(descriptionstring);
 
         String imagestring = weatherParams.getIconName();
         System.out.println(imagestring);
-        image.setText(imagestring);
     }
 
     @FXML

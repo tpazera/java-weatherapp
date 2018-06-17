@@ -50,7 +50,6 @@ public class WeatherInteria extends Sites {
         try {
             Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > div.weather-currently-temp > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -60,9 +59,8 @@ public class WeatherInteria extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > ul.weather-currently-details > li.weather-currently-details-item.wind > span").first();
             wind = tag.text();
-            wind = wind.substring(24,wind.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             wind = "-";
         }
@@ -72,9 +70,8 @@ public class WeatherInteria extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > ul.weather-currently-details > li.weather-currently-details-item.pressure > span").first();
             pressure = tag.text();
-            pressure = pressure.substring(24,pressure.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             pressure = "-";
         }
@@ -84,9 +81,8 @@ public class WeatherInteria extends Sites {
     public String getCurrentCloudy() {
         String cloudy;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-precipitation > div > ul > li:nth-child(1) > span.entry-precipitation-value.cloud-cover").first();
             cloudy = tag.text();
-            cloudy = cloudy.substring(24,cloudy.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             cloudy = "-";
         }
@@ -96,9 +92,8 @@ public class WeatherInteria extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-humidity > div").first();
             humidity = tag.text();
-            humidity = humidity.substring(24,humidity.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             humidity = "-";
         }
@@ -108,9 +103,8 @@ public class WeatherInteria extends Sites {
     public String getCurrentRain() {
         String rain;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-precipitation > div > ul > li:nth-child(2) > span.entry-precipitation-value.rain").first();
             rain = tag.text();
-            rain = rain.substring(24,rain.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             rain = "-";
         }

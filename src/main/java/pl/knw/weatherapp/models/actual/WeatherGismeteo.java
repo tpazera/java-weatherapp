@@ -61,7 +61,6 @@ public class WeatherGismeteo extends Sites {
         try {
             Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.wind > dl > dd.value.m_wind.kmh").first();
             wind = tag.text();
-            wind = wind + "km/h";
         } catch (Exception e) {
             wind = "-";
         }
@@ -73,7 +72,6 @@ public class WeatherGismeteo extends Sites {
         try {
             Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.barp > dd.value.m_press.hpa").first();
             pressure = tag.text();
-            pressure = pressure + "hPa";
         } catch (Exception e) {
             pressure = "-";
         }
@@ -96,7 +94,7 @@ public class WeatherGismeteo extends Sites {
         try {
             Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.hum").first();
             humidity = tag.text();
-            humidity = humidity + "%";
+            humidity = humidity.substring(0,3);
         } catch (Exception e) {
             humidity = "-";
         }

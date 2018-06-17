@@ -45,9 +45,10 @@ public class ForecastController implements Initializable {
             ArrayList<String> code = model.getWeatherCodes();
             Label result = null;
             ObservableList<Node> owm_childrens = api_grid.getChildren();
+            int i = 0;
             Date date = new Date();
             LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            int i = 0;
+
             for (Node owm_node : owm_childrens) { //2
                 GridPane child = (GridPane) owm_node;
                 ObservableList<Node> row_childrens = child.getChildren();

@@ -59,8 +59,9 @@ public class WeatherGismeteo extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.wind > dl > dd.value.m_wind.kmh").first();
             wind = tag.text();
+            wind = wind + "km/h";
         } catch (Exception e) {
             wind = "-";
         }
@@ -70,8 +71,9 @@ public class WeatherGismeteo extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.barp > dd.value.m_press.hpa").first();
             pressure = tag.text();
+            pressure = pressure + "hPa";
         } catch (Exception e) {
             pressure = "-";
         }
@@ -81,7 +83,7 @@ public class WeatherGismeteo extends Sites {
     public String getCurrentCloudy() {
         String cloudy;
         try {
-            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            Element tag = doc.select("").first();
             cloudy = tag.text();
         } catch (Exception e) {
             cloudy = "-";
@@ -92,8 +94,9 @@ public class WeatherGismeteo extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.wicon.hum").first();
             humidity = tag.text();
+            humidity = humidity + "%";
         } catch (Exception e) {
             humidity = "-";
         }
@@ -103,7 +106,7 @@ public class WeatherGismeteo extends Sites {
     public String getCurrentRain() {
         String rain;
         try {
-            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            Element tag = doc.select("").first();
             rain = tag.text();
         } catch (Exception e) {
             rain = "-";

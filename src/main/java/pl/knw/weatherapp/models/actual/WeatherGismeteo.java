@@ -57,27 +57,57 @@ public class WeatherGismeteo extends Sites {
     }
 
     public String getCurrentWind() {
-        String wind = "6 km / h";
+        String wind;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            wind = tag.text();
+        } catch (Exception e) {
+            wind = "-";
+        }
         return wind;
     }
 
     public String getCurrentPressure() {
-        String pressure = "1018 hPa";
+        String pressure;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            pressure = tag.text();
+        } catch (Exception e) {
+            pressure = "-";
+        }
         return pressure;
     }
 
     public String getCurrentCloudy() {
-        String cloudy = "0%";
+        String cloudy;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            cloudy = tag.text();
+        } catch (Exception e) {
+            cloudy = "-";
+        }
         return cloudy;
     }
 
     public String getCurrentHumidity() {
-        String humidity = "74%";
+        String humidity;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            humidity = tag.text();
+        } catch (Exception e) {
+            humidity = "-";
+        }
         return humidity;
     }
 
     public String getCurrentRain() {
-        String rain = "0,0 mm";
+        String rain;
+        try {
+            Element tag = doc.select("#weather > div.fcontent > div.section.higher > div.temp > dd.value.m_temp.c").first();
+            rain = tag.text();
+        } catch (Exception e) {
+            rain = "-";
+        }
         return rain;
     }
 

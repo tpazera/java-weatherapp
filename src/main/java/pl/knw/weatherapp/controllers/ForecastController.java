@@ -48,6 +48,9 @@ public class ForecastController implements Initializable {
             Date date = new Date();
             LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             int i = 0;
+            Date date = new Date();
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
             for (Node owm_node : owm_childrens) { //2
                 GridPane child = (GridPane) owm_node;
                 ObservableList<Node> row_childrens = child.getChildren();

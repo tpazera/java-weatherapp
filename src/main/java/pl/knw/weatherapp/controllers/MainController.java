@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -37,6 +39,7 @@ public class MainController implements Initializable {
     public Label clouds;
     public Label pressure;
     public Label humidity;
+    public ImageView img_icon;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -61,42 +64,33 @@ public class MainController implements Initializable {
         YahooWeatherDesc yahoo = model.getDataFromYahoo();
         properties.put("weathercondition", weatherParams.getIconName());
         String windstring = weatherParams.getWind_Speed();
-        System.out.println(windstring);
         wind.setText(windstring);
 
         String avgtemperature = weatherParams.getDateTemperature();
-        System.out.println(avgtemperature);
         avg.setText(avgtemperature);
 
         String pressurestring = weatherParams.getPressure();
-        System.out.println(pressurestring);
         pressure.setText(pressurestring);
 
         String humiditystring = weatherParams.getHumidity();
-        System.out.println(humiditystring);
         humidity.setText(humiditystring);
 
         String cloudsstring = weatherParams.getClouds();
-        System.out.println(cloudsstring);
         clouds.setText(cloudsstring);
 
         String dateinformationsstring = weatherParams.getDateInformations();
-        System.out.println(dateinformationsstring);
         date.setText(dateinformationsstring);
 
         String maxstring = weatherParams.getMaxTemperature();
-        System.out.println(maxstring);
         max.setText(maxstring);
 
         String minstring = weatherParams.getMinTemperature();
-        System.out.println(minstring);
         min.setText(minstring);
 
-        String descriptionstring = weatherParams.getDescription();
-        System.out.println(descriptionstring);
-
         String imagestring = weatherParams.getIconName();
-        System.out.println(imagestring);
+        img_icon.setImage(new Image(getClass().getResourceAsStream("../images/tiles/" + imagestring + ".gif"),300,300,false,false));
+
+
     }
 
     @FXML

@@ -83,6 +83,6 @@
                 </ImageView>
             </children>
         </Pane>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="451.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img_icon" fitHeight="150.0" fitWidth="200.0" layoutX="451.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
     </children>
 </AnchorPane>

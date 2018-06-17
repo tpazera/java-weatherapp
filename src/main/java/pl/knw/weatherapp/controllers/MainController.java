@@ -80,7 +80,7 @@ public class MainController implements Initializable {
         String cloudsstring = weatherParams.getClouds();
         clouds.setText(cloudsstring);
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date d = new Date();
         //String dateinformationsstring = weatherParams.getDateInformations();
         date.setText(dateFormat.format(d));

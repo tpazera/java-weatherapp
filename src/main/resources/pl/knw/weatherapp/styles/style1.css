@@ -109,3 +109,19 @@
 .main_bg {
     -fx-background-image: url("../images/main-background.jpg");
 }
+
+.main_panel .main_button {
+    -fx-background-color: #699DB6;
+    -fx-border-color: rgba(0,0,0,0.3);
+    -fx-text-fill: #FFF;
+}
+
+.main_panel .main_button:hover {
+    -fx-background-color: #4F87A2;
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+.main_panel .main_button:pressed {
+    -fx-background-color: #3C677B;
+    -fx-border-color: rgba(0,0,0,0.9);
+}

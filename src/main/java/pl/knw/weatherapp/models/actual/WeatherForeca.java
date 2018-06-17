@@ -60,7 +60,7 @@ public class WeatherForeca extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.symb > div.wind > strong").first();
             wind = tag.text();
         } catch (Exception e) {
             wind = "-";
@@ -71,7 +71,7 @@ public class WeatherForeca extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(4)").first();
             pressure = tag.text();
         } catch (Exception e) {
             pressure = "-";
@@ -82,8 +82,9 @@ public class WeatherForeca extends Sites {
     public String getCurrentCloudy() {
         String cloudy;
         try {
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            Element tag = doc.select("").first();
             cloudy = tag.text();
+            cloudy = cloudy + "km/h";
         } catch (Exception e) {
             cloudy = "-";
         }
@@ -93,7 +94,7 @@ public class WeatherForeca extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(4)").first();
             humidity = tag.text();
         } catch (Exception e) {
             humidity = "-";
@@ -104,8 +105,9 @@ public class WeatherForeca extends Sites {
     public String getCurrentRain() {
         String rain;
         try {
-            Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
+            Element tag = doc.select("").first();
             rain = tag.text();
+            rain = rain + "mm";
         } catch (Exception e) {
             rain = "-";
         }

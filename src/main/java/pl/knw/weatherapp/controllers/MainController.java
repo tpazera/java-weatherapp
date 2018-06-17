@@ -33,8 +33,6 @@ public class MainController implements Initializable {
     public Label max;
     public Label avg;
     public Label date;
-    public Label image;
-    public Label description;
     public Label wind;
     public Label clouds;
     public Label pressure;
@@ -96,11 +94,9 @@ public class MainController implements Initializable {
 
         String descriptionstring = weatherParams.getDescription();
         System.out.println(descriptionstring);
-        description.setText(descriptionstring);
 
         String imagestring = weatherParams.getIconName();
         System.out.println(imagestring);
-        image.setText(imagestring);
     }
 
     @FXML

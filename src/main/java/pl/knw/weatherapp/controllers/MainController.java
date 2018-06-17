@@ -87,9 +87,10 @@ public class MainController implements Initializable {
         String minstring = weatherParams.getMinTemperature();
         min.setText(minstring);
 
-        String descriptionstring = weatherParams.getDescription();
         String imagestring = weatherParams.getIconName();
         img_icon.setImage(new Image(getClass().getResourceAsStream("../images/tiles/" + imagestring + ".gif"),300,300,false,false));
+
+
     }
 
     @FXML

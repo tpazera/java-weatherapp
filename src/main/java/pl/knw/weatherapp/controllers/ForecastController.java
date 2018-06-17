@@ -16,7 +16,10 @@ import pl.knw.weatherapp.models.forecast.ForecastModel;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ForecastController implements Initializable {
@@ -43,6 +46,9 @@ public class ForecastController implements Initializable {
             Label result = null;
             ObservableList<Node> owm_childrens = api_grid.getChildren();
             int i = 0;
+            Date date = new Date();
+            LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
             for (Node owm_node : owm_childrens) { //2
                 GridPane child = (GridPane) owm_node;
                 ObservableList<Node> row_childrens = child.getChildren();
@@ -58,7 +64,14 @@ public class ForecastController implements Initializable {
                             for(Node labels_node : labels_childrens) { //3
                                 result = (Label) labels_node;
                                 if (tmp2 % 3 == 0) {
-                                    result.setText("PON");
+                                    String month;
+                                    if(localDate.getMonthValue() < 10) {
+                                        month = "0" + localDate.getMonthValue();
+                                    } else {
+                                        month = String.valueOf(localDate.getMonthValue());
+                                    }
+                                    result.setText(localDate.getDayOfMonth() + "." + month);
+                                    localDate = localDate.plusDays(1);
                                 } else if (tmp2 % 3 == 1) {
                                     String text = average.get(i);
                                     try {

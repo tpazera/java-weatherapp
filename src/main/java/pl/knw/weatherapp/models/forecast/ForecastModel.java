@@ -21,18 +21,18 @@ public class ForecastModel {
     }
 
     public ArrayList<String> getMinTemperatures() {
-        MinTemperature10Days average = site.min;
-        return average.getArray();
+        MinTemperature10Days min = site.min;
+        return min.getArray();
     }
 
     public ArrayList<String> getMaxTemperatures() {
-        MaxTemperature10Days average = site.max;
-        return average.getArray();
+        MaxTemperature10Days max = site.max;
+        return max.getArray();
     }
 
     public ArrayList<String> getWeatherCodes() {
-        WeatherCode10Days average = site.code;
-        return average.getArray();
+        WeatherCode10Days code = site.code;
+        return code.getArray();
     }
 
 

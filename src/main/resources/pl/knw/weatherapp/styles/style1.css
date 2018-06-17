@@ -67,3 +67,23 @@
     -fx-background-repeat: repeat;
     visibility: visible;
 }
+
+.label_temp {
+    -fx-font-size: 17px;
+}
+
+.label_max {
+    -fx-font-size: 15px;
+}
+
+.label_min {
+    -fx-font-size: 10px;
+}
+
+#forecastPane {
+    -fx-background-image: url("../images/weather-bg/bg02d.jpg");
+}
+
+#owm_grid, #yahoo_grid {
+    -fx-background-image: url("../images/transparent-background-2.png");
+}

@@ -105,3 +105,7 @@
 .settings_panel {
     -fx-background-image: url("../images/forecastbackground.jpg");
 }
+
+.main_bg {
+    -fx-background-image: url("../images/main-background.jpg");
+}

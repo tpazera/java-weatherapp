@@ -40,8 +40,6 @@ public class WeatherInteria extends Sites {
 
     //Link: https://pogoda.interia.pl/prognoza-szczegolowa-krakow,cId,4970
 
-    //Pobierz to co się da
-
     public String getName() {
         String name = "interia";
         return name;
@@ -52,7 +50,6 @@ public class WeatherInteria extends Sites {
         try {
             Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > div.weather-currently-temp > div").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -60,27 +57,57 @@ public class WeatherInteria extends Sites {
     }
 
     public String getCurrentWind() {
-        String wind = "6 km / h";
+        String wind;
+        try {
+            Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > ul.weather-currently-details > li.weather-currently-details-item.wind > span").first();
+            wind = tag.text();
+        } catch (Exception e) {
+            wind = "-";
+        }
         return wind;
     }
 
     public String getCurrentPressure() {
-        String pressure = "1018 hPa";
+        String pressure;
+        try {
+            Element tag = doc.select("#weather-currently > div.weather-currently-middle > div.weather-currently-middle-today-wrapper > div > ul.weather-currently-details > li.weather-currently-details-item.pressure > span").first();
+            pressure = tag.text();
+        } catch (Exception e) {
+            pressure = "-";
+        }
         return pressure;
     }
 
     public String getCurrentCloudy() {
-        String cloudy = "0%";
+        String cloudy;
+        try {
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-precipitation > div > ul > li:nth-child(1) > span.entry-precipitation-value.cloud-cover").first();
+            cloudy = tag.text();
+        } catch (Exception e) {
+            cloudy = "-";
+        }
         return cloudy;
     }
 
     public String getCurrentHumidity() {
-        String humidity = "74%";
+        String humidity;
+        try {
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-humidity > div").first();
+            humidity = tag.text();
+        } catch (Exception e) {
+            humidity = "-";
+        }
         return humidity;
     }
 
     public String getCurrentRain() {
-        String rain = "0,0 mm";
+        String rain;
+        try {
+            Element tag = doc.select("#content > div.main-content.col-xs-12.col-rs-12.col-sm-12.col-md-8.col-lg-8 > section.weather-forecast-hbh > div.weather-forecast-hbh-main-list > div.weather-forecast > div.weather-forecast-hbh-list.is-not-hidden > div > div.entry-precipitation > div > ul > li:nth-child(2) > span.entry-precipitation-value.rain").first();
+            rain = tag.text();
+        } catch (Exception e) {
+            rain = "-";
+        }
         return rain;
     }
 

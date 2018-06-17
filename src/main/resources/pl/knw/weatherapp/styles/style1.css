@@ -101,3 +101,7 @@
 #main_pane {
     -fx-background-image: url("../images/transparent-background-2.png");
 }
+
+.settings_panel {
+    -fx-background-image: url("../images/forecastbackground.jpg");
+}

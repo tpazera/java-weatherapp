@@ -86,3 +86,170 @@
         </Pane>
     </children>
 </AnchorPane>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane fx:id="rootPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" styleClass="main_panel" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.knw.weatherapp.controllers.ActualController">
+   <children>
+      <ScrollPane fx:id="actual_scroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <content>
+            <AnchorPane fx:id="main_anchor" minWidth="899.0" prefHeight="580.0" prefWidth="900.0" styleClass="main_anchor">
+               <children>
+                  <ImageView fx:id="background_view" fitHeight="582.0" fitWidth="1350.0" pickOnBounds="true" preserveRatio="true" />
+                  <GridPane fx:id="gridpane1" layoutX="7.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img1" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain1" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridpane2" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img2" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain2" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridpane3" layoutX="15.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img3" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain3" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridpane4" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img4" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain4" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridpane5" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img5" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain5" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="gridpane6" layoutX="14.0" layoutY="70.0" prefHeight="500.0" prefWidth="218.0" styleClass="actual_grid_hidden">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="img6" fitHeight="142.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true" styleClass="actual_img" GridPane.rowIndex="0" />
+                        <Label fx:id="temperature6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="1" />
+                        <Label fx:id="wind6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="2" />
+                        <Label fx:id="pressure6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="3" />
+                        <Label fx:id="cloudy6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="4" />
+                        <Label fx:id="humidity6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="5" />
+                        <Label fx:id="rain6" alignment="CENTER" prefHeight="100.0" prefWidth="218.0" styleClass="actual_label" text="Label" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+               </children></AnchorPane>
+         </content>
+      </ScrollPane>
+      <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0">
+         <children>
+             <Button fx:id="returnButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainPage" prefHeight="50.0" prefWidth="218.0" styleClass="main_button" text="Powrót do strony głównej" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

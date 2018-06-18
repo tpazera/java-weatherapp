@@ -13,6 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import pl.knw.weatherapp.models.forecast.ForecastModel;
+import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,6 +34,11 @@ public class ForecastController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        ProjectProperties properties = ProjectProperties.getInstance();
+        forecastPane.getStylesheets().clear();
+        forecastPane.getStylesheets().add(String.valueOf(getClass().getResource("../styles/" + properties.get("style"))));
+
         ForecastModel model;
         for(int j = 0; j < 2; j++) {
             model = new ForecastModel(j);

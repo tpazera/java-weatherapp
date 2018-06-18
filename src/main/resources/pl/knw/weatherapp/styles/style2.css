@@ -2,25 +2,25 @@
 
 /* Font for app */
 AnchorPane {
-    -fx-font-family: 'Nova Flat';
+    -fx-font-family: 'Helvetica';
     -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 
 /* Buttons */
 .main_panel .main_button {
-    -fx-background-color: #699DB6;
+    -fx-background-color: #72b674;
     -fx-border-color: rgba(0,0,0,0.3);
     -fx-text-fill: #FFF;
 }
 
 .main_panel .main_button:hover {
-    -fx-background-color: #4F87A2;
+    -fx-background-color: #51b663;
     -fx-border-color: rgba(0,0,0,0.5);
 }
 
 .main_panel .main_button:pressed {
-    -fx-background-color: #3C677B;
+    -fx-background-color: #5b9a5d;
     -fx-border-color: rgba(0,0,0,0.9);
 }
 
@@ -62,12 +62,12 @@ AnchorPane {
 }
 
 #rootPane #returnButtonn:hover {
-    -fx-background-image: url("../images/arrow6.png");
+    -fx-background-image: url("../images/arrow7.png");
     -fx-border-color: rgba(0,0,0,0.5);
 }
 
 #rootPane #returnButton:pressed {
-    -fx-background-image: url("../images/arrow6.png");
+    -fx-background-image: url("../images/arrow7.png");
     -fx-border-color: rgba(0,0,0,0.9);
 }
 
@@ -77,12 +77,12 @@ AnchorPane {
 
 /* Togglebuttons - to enable/disable websites */
 .selected {
-    -fx-background-color: #ff3809;
+    -fx-background-color: #ff7016;
     -fx-text-fill: white;
 }
 
 .notselected {
-    -fx-background-color: #2fdf44;
+    -fx-background-color: #96c7df;
     -fx-text-fill: white;
 }
 
@@ -119,17 +119,17 @@ AnchorPane {
 }
 
 #max {
-    -fx-text-fill: #c10032;
+    -fx-text-fill: #d5000f;
     -fx-font-size: 30px;
 }
 
 #min {
-    -fx-text-fill: #3a62ff;
+    -fx-text-fill: #0024ff;
     -fx-font-size: 30px;
 }
 
 #avg {
-    -fx-text-fill: #00a300;
+    -fx-text-fill: #00bd00;
     -fx-font-size: 30px;
 }
 

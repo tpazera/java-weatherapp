@@ -38,6 +38,7 @@ public class App extends Application {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         rootScene.getStylesheets().add(String.valueOf(getClass().getResource("styles/" + properties.get("style"))));
         rootScene.setFill(Color.TRANSPARENT);
         System.out.println(properties.get("style"));

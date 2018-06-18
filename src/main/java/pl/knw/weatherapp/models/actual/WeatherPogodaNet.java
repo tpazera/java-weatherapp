@@ -16,7 +16,7 @@ public class WeatherPogodaNet extends Sites {
 
     public WeatherPogodaNet() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[PogodaNet] Getting address from google search...");
+        System.out.println("[PogodaNet] Getting html code...");
         String url = "https://www.google.pl/search?q=Pogoda+-+prognoza+pogody+prosto+i+wygodnie+pogoda.net+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)

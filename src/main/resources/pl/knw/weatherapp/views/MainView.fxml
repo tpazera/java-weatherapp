@@ -25,17 +25,17 @@
                 <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="humidity" alignment="CENTER" prefHeight="118.0" prefWidth="226.0" styleClass="features_values" text="wilgoc" GridPane.rowIndex="1" />
-                <Label fx:id="pressure" alignment="CENTER" prefHeight="114.0" prefWidth="225.0" styleClass="features_values" text="cisnienie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label fx:id="clouds" alignment="CENTER" prefHeight="102.0" prefWidth="225.0" styleClass="features_values" text="zachmurzenie" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label fx:id="wind" alignment="CENTER" prefHeight="93.0" prefWidth="225.0" styleClass="features_values" text="wiatr" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="91.0" prefWidth="225.0" styleClass="features_labels" text="Ciśnienie:" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Zachmurzenie:" GridPane.columnIndex="2" />
-            <Label alignment="CENTER" prefHeight="75.0" prefWidth="240.0" styleClass="features_labels" text="Wilgoć:" />
-            <Label alignment="CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Wiatr:" GridPane.columnIndex="3" />
+                <Label fx:id="humidity" alignment="TOP_CENTER" prefHeight="118.0" prefWidth="226.0" styleClass="features_values" text="wilgoc" GridPane.rowIndex="1" />
+                <Label fx:id="pressure" alignment="TOP_CENTER" prefHeight="114.0" prefWidth="225.0" styleClass="features_values" text="cisnienie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="clouds" alignment="TOP_CENTER" prefHeight="102.0" prefWidth="225.0" styleClass="features_values" text="zachmurzenie" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="wind" alignment="TOP_CENTER" prefHeight="93.0" prefWidth="225.0" styleClass="features_values" text="wiatr" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="91.0" prefWidth="225.0" styleClass="features_labels" text="Ciśnienie:" GridPane.columnIndex="1" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Zachmurzenie:" GridPane.columnIndex="2" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="240.0" styleClass="features_labels" text="Wilgoć:" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Wiatr:" GridPane.columnIndex="3" />
             </children>
         </GridPane>
-        <Pane layoutX="60.0" layoutY="80.0" prefHeight="80.0" prefWidth="780.0">
+        <Pane layoutX="60.0" layoutY="100.0" prefHeight="80.0" prefWidth="780.0">
             <children>
                 <Label fx:id="date" alignment="CENTER" prefHeight="80.0" prefWidth="780.0" text="data" />
             </children>

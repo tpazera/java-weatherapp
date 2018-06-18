@@ -115,6 +115,18 @@ AnchorPane {
     -fx-font-size: 18px;
 }
 
+#date {
+    -fx-font-size: 40px;
+}
+
+.features_labels {
+    -fx-font-size: 20px;
+}
+
+.features_values {
+    -fx-font-size: 25px;
+}
+
 
 /* ### FORECAST VIEW ### */
 

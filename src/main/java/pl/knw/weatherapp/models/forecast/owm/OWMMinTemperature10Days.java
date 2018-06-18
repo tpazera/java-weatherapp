@@ -19,7 +19,7 @@ public class OWMMinTemperature10Days implements MinTemperature10Days {
         JSONObject jo = (JSONObject) forecastJson;
         for(int i = 0; i < 10; i++) {
             Map m = (Map) jo.get(i);
-            String tmp = m.get("average").toString();
+            String tmp = m.get("min").toString();
             map.put(String.valueOf(i), tmp);
             array.add(tmp);
         }

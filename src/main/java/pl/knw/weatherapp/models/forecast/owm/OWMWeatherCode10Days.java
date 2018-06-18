@@ -16,7 +16,9 @@ public class OWMWeatherCode10Days implements WeatherCode10Days {
         JSONObject jo = (JSONObject) forecastJson;
         for(int i = 0; i < 10; i++) {
             Map m = (Map) jo.get(i);
-            String tmp = m.get("average").toString();
+            String tmp = m.get("code").toString();
+
+
             map.put(String.valueOf(i), tmp);
             array.add(tmp);
         }

@@ -34,4 +34,12 @@ public class ProjectPropertiesTest {
         assertNull(properties.put(name, value));
     }
 
+    @Test
+    public void has() {
+        String name = "empty";
+
+        Properties properties = new ProjectProperties();
+        assertFalse(properties.has(name));
+    }
+
 }

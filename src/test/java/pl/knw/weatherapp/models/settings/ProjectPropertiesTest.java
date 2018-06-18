@@ -25,4 +25,13 @@ public class ProjectPropertiesTest {
         assertNull(properties.get(name));
     }
 
+    @Test
+    public void put() {
+        String name = "name";
+        String value = "value";
+
+        Properties properties = new ProjectProperties();
+        assertNull(properties.put(name, value));
+    }
+
 }

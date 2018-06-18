@@ -48,9 +48,9 @@ public class WeatherPogodaNet extends Sites {
     public String getCurrentTemperature() {
         String temperature;
         try {
-            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(6) > strong").first();
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > div > em").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+            temperature = temperature.substring(0,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -60,9 +60,8 @@ public class WeatherPogodaNet extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(8) > strong").first();
             wind = tag.text();
-            wind = wind.substring(24,wind.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             wind = "-";
         }
@@ -72,9 +71,8 @@ public class WeatherPogodaNet extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(5) > strong").first();
             pressure = tag.text();
-            pressure = pressure.substring(24,pressure.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             pressure = "-";
         }
@@ -86,7 +84,6 @@ public class WeatherPogodaNet extends Sites {
         try {
             Element tag = doc.select("").first();
             cloudy = tag.text();
-            cloudy = cloudy.substring(24,cloudy.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             cloudy = "-";
         }
@@ -96,9 +93,8 @@ public class WeatherPogodaNet extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select("").first();
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(7) > strong").first();
             humidity = tag.text();
-            humidity = humidity.substring(24,humidity.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             humidity = "-";
         }
@@ -110,7 +106,6 @@ public class WeatherPogodaNet extends Sites {
         try {
             Element tag = doc.select("").first();
             rain = tag.text();
-            rain = rain.substring(24,rain.length()-1); //obcinam "Temperatura odczuwalna: "
         } catch (Exception e) {
             rain = "-";
         }

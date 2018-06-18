@@ -44,17 +44,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="ipLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="162.0" prefWidth="398.0" text="Adres IP: " />
-             <Label fx:id="cityLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="197.0" prefWidth="512.0" text="Lokalizacja: " GridPane.columnIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="189.0" prefWidth="445.0" text="Twoje imię:" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="ipLabel" styleClass="settings_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="162.0" prefWidth="398.0" text="Adres IP: " />
+             <Label fx:id="cityLabel" styleClass="settings_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="197.0" prefWidth="512.0" text="Lokalizacja: " GridPane.columnIndex="1" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="189.0" prefWidth="445.0" text="Twoje imię:" textAlignment="CENTER" GridPane.rowIndex="1" />
             <TextField fx:id="nameTextField" prefHeight="43.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="262.0" prefWidth="410.0" text="pogoda.wp.pl" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="205.0" prefWidth="424.0" text="pogoda.onet.pl" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="203.0" prefWidth="593.0" text="pogoda.interia.pl" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="253.0" prefWidth="499.0" text="foreca.pl" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="198.0" prefWidth="473.0" text="pogoda.net" GridPane.rowIndex="6" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="452.0" text="gismeteo.pl" GridPane.rowIndex="7" />
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="176.0" prefWidth="528.0" text="Styles" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="262.0" prefWidth="410.0" text="pogoda.wp.pl" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="205.0" prefWidth="424.0" text="pogoda.onet.pl" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="203.0" prefWidth="593.0" text="pogoda.interia.pl" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="253.0" prefWidth="499.0" text="foreca.pl" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="198.0" prefWidth="473.0" text="pogoda.net" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="195.0" prefWidth="452.0" text="gismeteo.pl" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="176.0" prefWidth="528.0" text="Styles" GridPane.rowIndex="8" />
             <ToggleButton fx:id="wpToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ToggleButton fx:id="onetToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ToggleButton fx:id="interiaToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="4" />

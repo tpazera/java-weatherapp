@@ -5,7 +5,6 @@ AnchorPane {
     -fx-font-family: 'Nova Flat';
     -fx-font-size: 15px;
     -fx-font-weight: bold;
-    -fx-text-fill: white;
 }
 
 /* Buttons */
@@ -73,6 +72,10 @@ AnchorPane {
     -fx-background-image: url("../images/forecastbackground.jpg");
 }
 
+.settings_label {
+    -fx-text-fill: white;
+}
+
 
 /* ### MAIN VIEW ### */
 
@@ -87,6 +90,10 @@ AnchorPane {
 
 .main_bg {
     -fx-background-image: url("../images/main-background.jpg");
+}
+
+.features_values {
+    -fx-text-fill: black;
 }
 
 
@@ -111,7 +118,7 @@ AnchorPane {
 }
 
 
-#forecastPane Label {
+#forecastPane, .label_max, .label_min, .label_temp {
     -fx-text-fill: white;
 }
 

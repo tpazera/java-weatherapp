@@ -50,7 +50,7 @@ public class WeatherPogodaNet extends Sites {
         try {
             Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > div > em").first();
             temperature = tag.text();
-            temperature = temperature.substring(0,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+            temperature = temperature.substring(0, temperature.length()-1) + DEGREE + "C";
         } catch (Exception e) {
             temperature = "-";
         }

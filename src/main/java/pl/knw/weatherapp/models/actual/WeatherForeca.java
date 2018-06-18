@@ -51,6 +51,7 @@ public class WeatherForeca extends Sites {
         try {
             Element tag = doc.select("#left > div.cf > div.column.split > div.cf > div > div.obs.cf > div.values > div > div:nth-child(2)").first();
             temperature = tag.text();
+            temperature = temperature + "C";
         } catch (Exception e) {
             temperature = "-";
         }

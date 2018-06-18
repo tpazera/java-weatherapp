@@ -25,38 +25,38 @@
                 <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="75.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="humidity" alignment="CENTER" prefHeight="118.0" prefWidth="226.0" styleClass="features_values" text="wilgoc" GridPane.rowIndex="1" />
-                <Label fx:id="pressure" alignment="CENTER" prefHeight="114.0" prefWidth="225.0" styleClass="features_values" text="cisnienie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                <Label fx:id="clouds" alignment="CENTER" prefHeight="102.0" prefWidth="225.0" styleClass="features_values" text="zachmurzenie" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                <Label fx:id="wind" alignment="CENTER" prefHeight="93.0" prefWidth="225.0" styleClass="features_values" text="wiatr" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="91.0" prefWidth="225.0" styleClass="features_labels" text="Ciśnienie:" GridPane.columnIndex="1" />
-            <Label alignment="CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Zachmurzenie:" GridPane.columnIndex="2" />
-            <Label alignment="CENTER" prefHeight="75.0" prefWidth="240.0" styleClass="features_labels" text="Wilgoć:" />
-            <Label alignment="CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Wiatr:" GridPane.columnIndex="3" />
+                <Label fx:id="humidity" alignment="TOP_CENTER" prefHeight="118.0" prefWidth="226.0" styleClass="features_values" text="wilgoc" GridPane.rowIndex="1" />
+                <Label fx:id="pressure" alignment="TOP_CENTER" prefHeight="114.0" prefWidth="225.0" styleClass="features_values" text="cisnienie" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="clouds" alignment="TOP_CENTER" prefHeight="102.0" prefWidth="225.0" styleClass="features_values" text="zachmurzenie" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <Label fx:id="wind" alignment="TOP_CENTER" prefHeight="93.0" prefWidth="225.0" styleClass="features_values" text="wiatr" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="91.0" prefWidth="225.0" styleClass="features_labels" text="Ciśnienie:" GridPane.columnIndex="1" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Zachmurzenie:" GridPane.columnIndex="2" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="75.0" prefWidth="240.0" styleClass="features_labels" text="Wilgoć:" />
+            <Label alignment="BOTTOM_CENTER" prefHeight="103.0" prefWidth="225.0" styleClass="features_labels" text="Wiatr:" GridPane.columnIndex="3" />
             </children>
         </GridPane>
-        <Pane layoutX="60.0" layoutY="80.0" prefHeight="80.0" prefWidth="780.0">
+        <Pane layoutX="60.0" layoutY="100.0" prefHeight="80.0" prefWidth="780.0">
             <children>
                 <Label fx:id="date" alignment="CENTER" prefHeight="80.0" prefWidth="780.0" text="data" />
             </children>
         </Pane>
         <GridPane layoutX="214.0" layoutY="220.0" prefHeight="91.0" prefWidth="585.0">
             <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="212.0" minWidth="10.0" prefWidth="125.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="222.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="218.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.0" minWidth="10.0" prefWidth="220.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="344.0" minWidth="10.0" prefWidth="218.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="147.0" />
             </columnConstraints>
             <rowConstraints>
             <RowConstraints maxHeight="44.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="81.0" minHeight="10.0" prefHeight="68.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label fx:id="min" alignment="CENTER" prefHeight="112.0" prefWidth="331.0" styleClass="min_value" text="min" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <Label fx:id="min" prefHeight="112.0" prefWidth="331.0" styleClass="min_value" text="min" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <Label fx:id="avg" prefHeight="124.0" prefWidth="191.0" styleClass="average_value" text="srednia" GridPane.rowIndex="1" />
-                <Label fx:id="max" alignment="CENTER" prefHeight="108.0" prefWidth="260.0" styleClass="max_value" text="max" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" prefHeight="98.0" prefWidth="382.0" styleClass="min_val_label" text="Minimalna:" GridPane.columnIndex="1" />
+                <Label fx:id="max" prefHeight="108.0" prefWidth="260.0" styleClass="max_value" text="max" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <Label prefHeight="98.0" prefWidth="382.0" styleClass="min_val_label" text="Minimalna:" GridPane.columnIndex="1" />
             <Label prefHeight="27.0" prefWidth="176.0" styleClass="avg_val_label" text="Średnia:" />
-            <Label alignment="CENTER" prefHeight="103.0" prefWidth="334.0" styleClass="max_val_label" text="Maksymalna:" GridPane.columnIndex="2" />
+            <Label prefHeight="103.0" prefWidth="334.0" styleClass="max_val_label" text="Maksymalna:" GridPane.columnIndex="2" />
             </children>
         </GridPane>
         <Pane fx:id="loading_img" layoutX="350.0" layoutY="200.0" prefHeight="200.0" prefWidth="200.0" styleClass="loading-hidden">

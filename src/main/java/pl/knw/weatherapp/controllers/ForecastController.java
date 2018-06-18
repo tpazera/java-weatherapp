@@ -100,7 +100,6 @@ public class ForecastController implements Initializable {
                         } else { //image
                             ImageView imgview = (ImageView) block_node;
                             String image = code.get(i);
-                            System.out.println("../images/tiles/" + image +".gif");
                             imgview.setImage(new Image(getClass().getResourceAsStream("../images/tiles/" + image +".gif"),25,25,true,true));
                         }
                         tmp++;

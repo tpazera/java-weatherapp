@@ -55,7 +55,7 @@ public class WeatherWP extends Sites {
         try {
             Element tag = doc.select("body > div.static > span:nth-child(4)").first();
             temperature = tag.text();
-            temperature = temperature.substring(13,temperature.length()-1); //obcinam "Temperatura : "
+            temperature = temperature.substring(13,temperature.length()); //obcinam "Temperatura : "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -65,9 +65,9 @@ public class WeatherWP extends Sites {
     public String getCurrentWind() {
         String wind;
         try {
-            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            Element tag = doc.select("body > div.static > span:nth-child(9)").first();
             wind = tag.text();
-            wind = wind.substring(13,wind.length()-1); //obcinam "Temperatura : "
+            wind = wind.substring(17,wind.length()); //obcinam "prędkosć wiatru: ""
         } catch (Exception e) {
             wind = "-";
         }
@@ -77,9 +77,9 @@ public class WeatherWP extends Sites {
     public String getCurrentPressure() {
         String pressure;
         try {
-            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            Element tag = doc.select("body > div.static > span:nth-child(10)").first();
             pressure = tag.text();
-            pressure = pressure.substring(13,pressure.length()-1); //obcinam "Temperatura : "
+            pressure = pressure.substring(11,pressure.length()); //obcinam "ciśnienie: "
         } catch (Exception e) {
             pressure = "-";
         }
@@ -91,7 +91,7 @@ public class WeatherWP extends Sites {
         try {
             Element tag = doc.select("body > div.static > span:nth-child(4)").first();
             cloudy = tag.text();
-            cloudy = cloudy.substring(13,cloudy.length()-1); //obcinam "Temperatura : "
+            cloudy = cloudy.substring(13,cloudy.length()); //obcinam "Temperatura : "
         } catch (Exception e) {
             cloudy = "-";
         }
@@ -101,9 +101,8 @@ public class WeatherWP extends Sites {
     public String getCurrentHumidity() {
         String humidity;
         try {
-            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            Element tag = doc.select("").first();
             humidity = tag.text();
-            humidity = humidity.substring(13,humidity.length()-1); //obcinam "Temperatura : "
         } catch (Exception e) {
             humidity = "-";
         }
@@ -113,9 +112,8 @@ public class WeatherWP extends Sites {
     public String getCurrentRain() {
         String rain;
         try {
-            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            Element tag = doc.select("").first();
             rain = tag.text();
-            rain = rain.substring(13,rain.length()-1); //obcinam "Temperatura : "
         } catch (Exception e) {
             rain = "-";
         }

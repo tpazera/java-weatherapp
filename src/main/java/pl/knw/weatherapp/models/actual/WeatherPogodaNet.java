@@ -58,27 +58,62 @@ public class WeatherPogodaNet extends Sites {
     }
 
     public String getCurrentWind() {
-        String wind = "6 km / h";
+        String wind;
+        try {
+            Element tag = doc.select("").first();
+            wind = tag.text();
+            wind = wind.substring(24,wind.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            wind = "-";
+        }
         return wind;
     }
 
     public String getCurrentPressure() {
-        String pressure = "1018 hPa";
+        String pressure;
+        try {
+            Element tag = doc.select("").first();
+            pressure = tag.text();
+            pressure = pressure.substring(24,pressure.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            pressure = "-";
+        }
         return pressure;
     }
 
     public String getCurrentCloudy() {
-        String cloudy = "0%";
+        String cloudy;
+        try {
+            Element tag = doc.select("").first();
+            cloudy = tag.text();
+            cloudy = cloudy.substring(24,cloudy.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            cloudy = "-";
+        }
         return cloudy;
     }
 
     public String getCurrentHumidity() {
-        String humidity = "74%";
+        String humidity;
+        try {
+            Element tag = doc.select("").first();
+            humidity = tag.text();
+            humidity = humidity.substring(24,humidity.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            humidity = "-";
+        }
         return humidity;
     }
 
     public String getCurrentRain() {
-        String rain = "0,0 mm";
+        String rain;
+        try {
+            Element tag = doc.select("").first();
+            rain = tag.text();
+            rain = rain.substring(24,rain.length()-1); //obcinam "Temperatura odczuwalna: "
+        } catch (Exception e) {
+            rain = "-";
+        }
         return rain;
     }
 

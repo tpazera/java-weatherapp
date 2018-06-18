@@ -96,6 +96,25 @@ AnchorPane {
     -fx-text-fill: black;
 }
 
+#max {
+    -fx-text-fill: #c10032;
+    -fx-font-size: 30px;
+}
+
+#min {
+    -fx-text-fill: #3a62ff;
+    -fx-font-size: 30px;
+}
+
+#avg {
+    -fx-text-fill: #00a300;
+    -fx-font-size: 30px;
+}
+
+.min_val_label, .max_val_label, .avg_val_label {
+    -fx-font-size: 18px;
+}
+
 
 /* ### FORECAST VIEW ### */
 

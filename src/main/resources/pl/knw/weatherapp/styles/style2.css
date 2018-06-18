@@ -1,22 +1,212 @@
-.main_panel {
-    -fx-background-color: #ffd08c;
-    -fx-font-family: "Abyssinica SIL";
-}
+/* ### BASIC STYLES ### */
 
-.main_panel .main_button {
-    -fx-background-color: #88f0ff;
-    -fx-border-width: 1px;
-    -fx-border-color: black;
-    -fx-text-fill: black;
+/* Font for app */
+AnchorPane {
+    -fx-font-family: 'Nova Flat';
     -fx-font-size: 15px;
+    -fx-font-weight: bold;
 }
 
+/* Buttons */
+.main_panel .main_button {
+    -fx-background-color: #699DB6;
+    -fx-border-color: rgba(0,0,0,0.3);
+    -fx-text-fill: #FFF;
+}
+
+.main_panel .main_button:hover {
+    -fx-background-color: #4F87A2;
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+.main_panel .main_button:pressed {
+    -fx-background-color: #3C677B;
+    -fx-border-color: rgba(0,0,0,0.9);
+}
+
+
+/* ### ACTUAL VIEW ### */
+
+/* Labels with values in actual view */
+.actual_label {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+/* Grids for websites */
+.actual_grid_hidden {
+    visibility: hidden;
+}
+
+/* Grids for websites */
+.actual_grid_visible {
+    visibility: visible;
+    -fx-background-image: url("../images/transparent-background-1.png");
+    -fx-background-color: red;
+}
+
+/* Remove background from anchorpane and scrollpane */
+#main_anchor, #actual_scroll {
+    -fx-background-color: rgba(255, 255, 120, 0);
+}
+
+#main_anchor {
+    width: 600px;
+}
+
+#rootPane #returnButton {
+    -fx-background-image: url("../images/arrow5.png");
+    -fx-background-size: 50px 50px;
+    -fx-background-color: rgba(0,0,0,0.0);
+    -fx-border-width: 0;
+}
+
+#rootPane #returnButtonn:hover {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+#rootPane #returnButton:pressed {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.9);
+}
+
+
+
+/* ### SETTINGS VIEW ### */
+
+/* Togglebuttons - to enable/disable websites */
 .selected {
-    -fx-background-color: #9e131d;
+    -fx-background-color: #ff3809;
     -fx-text-fill: white;
 }
 
 .notselected {
-    -fx-background-color: #2abf3d;
+    -fx-background-color: #2fdf44;
     -fx-text-fill: white;
 }
+
+.settings_panel {
+    -fx-background-image: url("../images/forecastbackground.jpg");
+}
+
+.settings_label {
+    -fx-text-fill: white;
+}
+
+#cityLabel, #ipLabel {
+    -fx-font-size: 20px ;
+}
+
+
+/* ### MAIN VIEW ### */
+
+/* Loading imageview */
+.loading-hidden {
+    visibility: hidden;
+}
+
+.loading-visible {
+    visibility: visible;
+}
+
+.main_bg {
+    -fx-background-image: url("../images/main-background.jpg");
+}
+
+.features_values {
+    -fx-text-fill: black;
+}
+
+#max {
+    -fx-text-fill: #c10032;
+    -fx-font-size: 30px;
+}
+
+#min {
+    -fx-text-fill: #3a62ff;
+    -fx-font-size: 30px;
+}
+
+#avg {
+    -fx-text-fill: #00a300;
+    -fx-font-size: 30px;
+}
+
+.min_val_label, .max_val_label, .avg_val_label {
+    -fx-font-size: 18px;
+}
+
+#date {
+    -fx-font-size: 40px;
+}
+
+.features_labels {
+    -fx-font-size: 20px;
+}
+
+.features_values {
+    -fx-font-size: 25px;
+}
+
+
+/* ### FORECAST VIEW ### */
+
+/* Labels */
+.label_temp {
+    -fx-font-size: 17px;
+}
+
+.label_max {
+    -fx-font-size: 15px;
+}
+
+.label_min {
+    -fx-font-size: 10px;
+}
+
+#forecastPane #returnButton {
+    -fx-background-image: url("../images/arrow5.png");
+    -fx-background-size: 50px 50px;
+    -fx-background-color: rgba(0,0,0,0.0);
+    -fx-border-width: 0;
+}
+
+#forecastPane #returnButtonn:hover {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+#forecastPane #returnButton:pressed {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.9);
+}
+
+/* Background */
+#forecastPane {
+    -fx-background-image: url("../images/forecastbackground.jpg");
+}
+
+
+#forecastPane, .label_max, .label_min, .label_temp {
+    -fx-text-fill: white;
+}
+
+#owm_grid, #yahoo_grid {
+    -fx-background-image: url("../images/transparent-background-1.png");
+}
+
+#main_label {
+    -fx-background-image: url("../images/forecastlabel.png");
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+#main_pane {
+    -fx-background-image: url("../images/transparent-background-2.png");
+}
+
+
+
+
+

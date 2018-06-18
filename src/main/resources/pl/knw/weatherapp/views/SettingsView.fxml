@@ -10,24 +10,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <AnchorPane fx:id="rootPane" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.knw.weatherapp.controllers.SettingsController">
    <children>
-      <GridPane layoutY="510.0" prefHeight="95.0" prefWidth="900.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="returnButton" mnemonicParsing="false" onAction="#goToMainPage" prefHeight="98.0" prefWidth="315.0" styleClass="main_button" text="Powrót do strony głównej" GridPane.columnIndex="2" />
-         </children>
-      </GridPane>
-      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="478.0" prefWidth="768.0">
+       <Pane layoutX="425.0" layoutY="10.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0">
+           <children>
+               <Button fx:id="returnButton" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToMainPage" prefHeight="50.0" prefWidth="50.0" styleClass="main_button" />
+           </children>
+       </Pane>
+      <GridPane fx:id="settings_grid" layoutX="83.0" layoutY="76.0" prefHeight="475.0" prefWidth="734.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,17 +37,17 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="ipLabel" styleClass="settings_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="162.0" prefWidth="398.0" text="Adres IP: " />
-             <Label fx:id="cityLabel" styleClass="settings_label" alignment="CENTER" contentDisplay="CENTER" prefHeight="197.0" prefWidth="512.0" text="Lokalizacja: " GridPane.columnIndex="1" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="189.0" prefWidth="445.0" text="Twoje imię:" textAlignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="ipLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="77.0" prefWidth="364.0" styleClass="settings_label" text="Adres IP: " />
+             <Label fx:id="cityLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="197.0" prefWidth="512.0" styleClass="settings_label" text="Lokalizacja: " GridPane.columnIndex="1" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="189.0" prefWidth="445.0" styleClass="settings_label" text="Twoje imię:" textAlignment="CENTER" GridPane.rowIndex="1" />
             <TextField fx:id="nameTextField" prefHeight="43.0" prefWidth="384.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="262.0" prefWidth="410.0" text="pogoda.wp.pl" GridPane.rowIndex="2" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="205.0" prefWidth="424.0" text="pogoda.onet.pl" GridPane.rowIndex="3" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="203.0" prefWidth="593.0" text="pogoda.interia.pl" GridPane.rowIndex="4" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="253.0" prefWidth="499.0" text="foreca.pl" GridPane.rowIndex="5" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="198.0" prefWidth="473.0" text="pogoda.net" GridPane.rowIndex="6" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="195.0" prefWidth="452.0" text="gismeteo.pl" GridPane.rowIndex="7" />
-            <Label alignment="CENTER" styleClass="settings_label" contentDisplay="CENTER" prefHeight="176.0" prefWidth="528.0" text="Styles" GridPane.rowIndex="8" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="262.0" prefWidth="410.0" styleClass="settings_label" text="pogoda.wp.pl" GridPane.rowIndex="2" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="205.0" prefWidth="424.0" styleClass="settings_label" text="pogoda.onet.pl" GridPane.rowIndex="3" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="203.0" prefWidth="593.0" styleClass="settings_label" text="pogoda.interia.pl" GridPane.rowIndex="4" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="253.0" prefWidth="499.0" styleClass="settings_label" text="foreca.pl" GridPane.rowIndex="5" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="198.0" prefWidth="473.0" styleClass="settings_label" text="pogoda.net" GridPane.rowIndex="6" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="195.0" prefWidth="452.0" styleClass="settings_label" text="gismeteo.pl" GridPane.rowIndex="7" />
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="176.0" prefWidth="528.0" styleClass="settings_label" text="Styles" GridPane.rowIndex="8" />
             <ToggleButton fx:id="wpToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ToggleButton fx:id="onetToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ToggleButton fx:id="interiaToggleButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="384.0" styleClass="settings_tb" text="Wyłącz pobieranie z tej strony" GridPane.columnIndex="1" GridPane.rowIndex="4" />

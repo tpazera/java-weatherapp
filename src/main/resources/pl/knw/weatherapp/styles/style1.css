@@ -54,6 +54,24 @@ AnchorPane {
     width: 600px;
 }
 
+#rootPane #returnButton {
+    -fx-background-image: url("../images/arrow5.png");
+    -fx-background-size: 50px 50px;
+    -fx-background-color: rgba(0,0,0,0.0);
+    -fx-border-width: 0;
+}
+
+#rootPane #returnButtonn:hover {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+#rootPane #returnButton:pressed {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.9);
+}
+
+
 
 /* ### SETTINGS VIEW ### */
 
@@ -74,6 +92,10 @@ AnchorPane {
 
 .settings_label {
     -fx-text-fill: white;
+}
+
+#cityLabel, #ipLabel {
+    -fx-font-size: 20px ;
 }
 
 
@@ -141,6 +163,23 @@ AnchorPane {
 
 .label_min {
     -fx-font-size: 10px;
+}
+
+#forecastPane #returnButton {
+    -fx-background-image: url("../images/arrow5.png");
+    -fx-background-size: 50px 50px;
+    -fx-background-color: rgba(0,0,0,0.0);
+    -fx-border-width: 0;
+}
+
+#forecastPane #returnButtonn:hover {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+#forecastPane #returnButton:pressed {
+    -fx-background-image: url("../images/arrow6.png");
+    -fx-border-color: rgba(0,0,0,0.9);
 }
 
 /* Background */

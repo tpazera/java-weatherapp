@@ -42,4 +42,12 @@ public class ProjectPropertiesTest {
         assertFalse(properties.has(name));
     }
 
+    @Test
+    public void remove() {
+        String name = "name";
+
+        Properties properties = new ProjectProperties();
+        assertNull(properties.remove(name));
+    }
+
 }

@@ -16,7 +16,7 @@ public class WeatherOnet extends Sites {
 
     public WeatherOnet() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[Onet] Getting address from google search...");
+        System.out.println("[Onet] Getting html code...");
         String url = "https://www.google.pl/search?q=onet+pogoda+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)

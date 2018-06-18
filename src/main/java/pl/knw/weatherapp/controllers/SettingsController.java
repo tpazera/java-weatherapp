@@ -38,7 +38,12 @@ public class SettingsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        final ProjectProperties properties = ProjectProperties.getInstance();
+        ProjectProperties properties = ProjectProperties.getInstance();
+
+        String css = String.valueOf(getClass().getResource("../styles/" + properties.get("style")));
+        rootPane.getStylesheets().clear();
+        rootPane.getStylesheets().add(css);
+
         ipLabel.setText("Adres IP: " + properties.get("ip"));
         cityLabel.setText("Lokalizacja: " + properties.get("city"));
         nameTextField.setText((String) properties.get("name"));
@@ -90,12 +95,13 @@ public class SettingsController implements Initializable {
         choicebox.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number number2) {
+                ProjectProperties properties = ProjectProperties.getInstance();
                 properties.put("style", choicebox.getItems().get((Integer) number2));
                 Scene scene = choicebox.getScene();
                 System.out.println(properties.get("style"));
-                String css = String.valueOf(getClass().getResource("../styles/" + choicebox.getItems().get((Integer) number2)));
-                scene.getStylesheets().clear();
-                scene.getStylesheets().add(css);
+                String css = String.valueOf(getClass().getResource("../styles/" + properties.get("style")));
+                rootPane.getStylesheets().clear();
+                rootPane.getStylesheets().add(css);
             }
         });
 

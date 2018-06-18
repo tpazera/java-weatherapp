@@ -16,7 +16,7 @@ public class WeatherWP extends Sites {
 
     public WeatherWP() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[WP.pl] Getting address from google search...");
+        System.out.println("[WP.pl] Getting html code...");
         String url = "https://www.google.pl/search?q=wp+pogoda+aktualna+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)

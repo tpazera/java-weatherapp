@@ -52,6 +52,9 @@ public class ActualController implements Initializable {
         background_view.setImage(new Image(getClass().getResourceAsStream("../images/weather-bg/bg"+properties.get("weathercondition")+".jpg"), 1400, 600, false, false));
         fillListWithObjects();
 
+        rootPane.getStylesheets().clear();
+        rootPane.getStylesheets().add(String.valueOf(getClass().getResource("../styles/" + properties.get("style"))));
+
         ActualModel model = new ActualModel();
         ArrayList< Sites > sites = model.getWeatherModels();
         Iterator iterator = new ListIterator(sites);

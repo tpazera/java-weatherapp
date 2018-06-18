@@ -16,7 +16,7 @@ public class WeatherInteria extends Sites {
 
     public WeatherInteria() {
         ProjectProperties properties = ProjectProperties.getInstance();
-        System.out.println("[Interia] Getting address from google search...");
+        System.out.println("[Interia] Getting html code...");
         String url = "https://www.google.pl/search?q=interia+pogoda+" + properties.get("city");
         try {
             doc = Jsoup.connect(url)

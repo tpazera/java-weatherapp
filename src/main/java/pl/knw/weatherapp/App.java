@@ -30,7 +30,7 @@ public class App extends Application {
                 lines.add(sc.nextLine());
             }
             String[] fileLines = lines.toArray(new String[0]);
-            properties.put("name", fileLines[0]);
+            properties.put("name", fileLines[0].toString());
             Integer[] sitesSettings = {Integer.valueOf(fileLines[1]), Integer.valueOf(fileLines[2]), Integer.valueOf(fileLines[3]), Integer.valueOf(fileLines[4]), Integer.valueOf(fileLines[5]), Integer.valueOf(fileLines[6])};
             properties.put("sites", sitesSettings);
             int tmp = Integer.parseInt(fileLines[7])+1;

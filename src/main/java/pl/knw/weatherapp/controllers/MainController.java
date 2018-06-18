@@ -22,6 +22,8 @@ import pl.knw.weatherapp.models.settings.ProjectProperties;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MainController implements Initializable {
@@ -78,8 +80,10 @@ public class MainController implements Initializable {
         String cloudsstring = weatherParams.getClouds();
         clouds.setText(cloudsstring);
 
-        String dateinformationsstring = weatherParams.getDateInformations();
-        date.setText(dateinformationsstring);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date d = new Date();
+        //String dateinformationsstring = weatherParams.getDateInformations();
+        date.setText(dateFormat.format(d));
 
         String maxstring = weatherParams.getMaxTemperature();
         max.setText(maxstring);

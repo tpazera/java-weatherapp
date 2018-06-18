@@ -9,4 +9,5 @@ interface Properties<N, V> {
   boolean has(N name);
 
   V remove(N name);
+
 }

@@ -55,7 +55,7 @@ public class WeatherWP extends Sites {
         try {
             Element tag = doc.select("body > div.static > span:nth-child(4)").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+            temperature = temperature.substring(13,temperature.length()); //obcinam "Temperatura : "
         } catch (Exception e) {
             temperature = "-";
         }
@@ -63,27 +63,60 @@ public class WeatherWP extends Sites {
     }
 
     public String getCurrentWind() {
-        String wind = "6 km / h";
+        String wind;
+        try {
+            Element tag = doc.select("body > div.static > span:nth-child(9)").first();
+            wind = tag.text();
+            wind = wind.substring(17,wind.length()); //obcinam "prędkosć wiatru: ""
+        } catch (Exception e) {
+            wind = "-";
+        }
         return wind;
     }
 
     public String getCurrentPressure() {
-        String pressure = "1018 hPa";
+        String pressure;
+        try {
+            Element tag = doc.select("body > div.static > span:nth-child(10)").first();
+            pressure = tag.text();
+            pressure = pressure.substring(11,pressure.length()); //obcinam "ciśnienie: "
+        } catch (Exception e) {
+            pressure = "-";
+        }
         return pressure;
     }
 
     public String getCurrentCloudy() {
-        String cloudy = "0%";
+        String cloudy;
+        try {
+            Element tag = doc.select("body > div.static > span:nth-child(4)").first();
+            cloudy = tag.text();
+            cloudy = cloudy.substring(13,cloudy.length()); //obcinam "Temperatura : "
+        } catch (Exception e) {
+            cloudy = "-";
+        }
         return cloudy;
     }
 
     public String getCurrentHumidity() {
-        String humidity = "74%";
+        String humidity;
+        try {
+            Element tag = doc.select("").first();
+            humidity = tag.text();
+        } catch (Exception e) {
+            humidity = "-";
+        }
         return humidity;
     }
 
     public String getCurrentRain() {
-        String rain = "0,0 mm";
+        String rain;
+        try {
+            Element tag = doc.select("").first();
+            rain = tag.text();
+        } catch (Exception e) {
+            rain = "-";
+        }
         return rain;
     }
 

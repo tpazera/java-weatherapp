@@ -48,9 +48,9 @@ public class WeatherPogodaNet extends Sites {
     public String getCurrentTemperature() {
         String temperature;
         try {
-            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(6) > strong").first();
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > div > em").first();
             temperature = tag.text();
-            temperature = temperature.substring(24,temperature.length()-1); //obcinam "Temperatura odczuwalna: "
+            temperature = temperature.substring(0, temperature.length()-1) + DEGREE + "C";
         } catch (Exception e) {
             temperature = "-";
         }
@@ -58,27 +58,57 @@ public class WeatherPogodaNet extends Sites {
     }
 
     public String getCurrentWind() {
-        String wind = "6 km / h";
+        String wind;
+        try {
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(8) > strong").first();
+            wind = tag.text();
+        } catch (Exception e) {
+            wind = "-";
+        }
         return wind;
     }
 
     public String getCurrentPressure() {
-        String pressure = "1018 hPa";
+        String pressure;
+        try {
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(5) > strong").first();
+            pressure = tag.text();
+        } catch (Exception e) {
+            pressure = "-";
+        }
         return pressure;
     }
 
     public String getCurrentCloudy() {
-        String cloudy = "0%";
+        String cloudy;
+        try {
+            Element tag = doc.select("").first();
+            cloudy = tag.text();
+        } catch (Exception e) {
+            cloudy = "-";
+        }
         return cloudy;
     }
 
     public String getCurrentHumidity() {
-        String humidity = "74%";
+        String humidity;
+        try {
+            Element tag = doc.select("body > div.container > div.row.row-place > div.col-lg-4.col-lg-offset-0.col-md-4.col-md-offset-0.col-sm-5.col-sm-offset-1.col-xs-10.col-xs-offset-1 > p:nth-child(7) > strong").first();
+            humidity = tag.text();
+        } catch (Exception e) {
+            humidity = "-";
+        }
         return humidity;
     }
 
     public String getCurrentRain() {
-        String rain = "0,0 mm";
+        String rain;
+        try {
+            Element tag = doc.select("").first();
+            rain = tag.text();
+        } catch (Exception e) {
+            rain = "-";
+        }
         return rain;
     }
 

@@ -50,6 +50,7 @@ public class WeatherOnet extends Sites {
         try {
             Element tag = doc.select("#weatherMainWidget > div.widgetContent > div.underSearchBox > div.mainBox.widgetLeftCol > div.mainBoxContent > div.mainParams > div.temperature > div.temp").first();
             temperature = tag.text();
+            temperature = temperature + "C";
         } catch (Exception e) {
             temperature = "-";
         }

@@ -60,7 +60,7 @@ public class OWMWeatherDesc {
                 m.put("average", temperature.getDayTemperature());
                 m.put("min", temperature.getMinimumTemperature());
                 m.put("max", temperature.getMaximumTemperature());
-                m.put("code", weather.getWeatherCode());
+                m.put("code", weather.getWeatherIconName());
                 forecastJson.put(i, m);
             }
             properties.put("forecastjson", forecastJson);

@@ -1,24 +1,64 @@
-.main_panel {
-    -fx-background-color: white;
+/* ### BASIC STYLES ### */
+
+/* Font for app */
+AnchorPane {
     -fx-font-family: 'Nova Flat';
     -fx-font-size: 15px;
     -fx-font-weight: bold;
     -fx-text-fill: white;
 }
 
+/* Buttons */
 .main_panel .main_button {
-    -fx-background-color: #dce7ff;
-    -fx-border-width: 1px;
-    -fx-border-color: black;
-    -fx-text-fill: #5d5d5d;
-    -fx-font-size: 15px;
+    -fx-background-color: #699DB6;
+    -fx-border-color: rgba(0,0,0,0.3);
+    -fx-text-fill: #FFF;
 }
 
+.main_panel .main_button:hover {
+    -fx-background-color: #4F87A2;
+    -fx-border-color: rgba(0,0,0,0.5);
+}
+
+.main_panel .main_button:pressed {
+    -fx-background-color: #3C677B;
+    -fx-border-color: rgba(0,0,0,0.9);
+}
+
+
+/* ### ACTUAL VIEW ### */
+
+/* Labels with values in actual view */
 .actual_label {
     -fx-font-size: 16px;
     -fx-text-fill: white;
 }
 
+/* Grids for websites */
+.actual_grid_hidden {
+    visibility: hidden;
+}
+
+/* Grids for websites */
+.actual_grid_visible {
+    visibility: visible;
+    -fx-background-image: url("../images/transparent-background-1.png");
+    -fx-background-color: red;
+}
+
+/* Remove background from anchorpane and scrollpane */
+#main_anchor, #actual_scroll {
+    -fx-background-color: rgba(255, 255, 120, 0);
+}
+
+#main_anchor {
+    width: 600px;
+}
+
+
+/* ### SETTINGS VIEW ### */
+
+/* Togglebuttons - to enable/disable websites */
 .selected {
     -fx-background-color: #ff3809;
     -fx-text-fill: white;
@@ -29,20 +69,14 @@
     -fx-text-fill: white;
 }
 
-#main_anchor, #actual_scroll {
-    -fx-background-color: rgba(255, 255, 120, 0);
+.settings_panel {
+    -fx-background-image: url("../images/forecastbackground.jpg");
 }
 
-.actual_grid_hidden {
-    visibility: hidden;
-}
 
-.actual_grid_visible {
-    visibility: visible;
-    -fx-background-image: url("../images/transparent-background-1.png");
-    -fx-background-color: red;
-}
+/* ### MAIN VIEW ### */
 
+/* Loading imageview */
 .loading-hidden {
     visibility: hidden;
 }
@@ -51,23 +85,14 @@
     visibility: visible;
 }
 
-#main_anchor {
-    width: 600px;
+.main_bg {
+    -fx-background-image: url("../images/main-background.jpg");
 }
 
-.actual_grid_1 {
-    -fx-background-color: red;
-    -fx-background-image: url("../images/transparent-background-1.png");
-    -fx-background-repeat: repeat;
-    visibility: visible;
-}
 
-.actual_grid_2 {
-    -fx-background-image: url("../images/transparent-background-2.png");
-    -fx-background-repeat: repeat;
-    visibility: visible;
-}
+/* ### FORECAST VIEW ### */
 
+/* Labels */
 .label_temp {
     -fx-font-size: 17px;
 }
@@ -80,9 +105,11 @@
     -fx-font-size: 10px;
 }
 
+/* Background */
 #forecastPane {
     -fx-background-image: url("../images/forecastbackground.jpg");
 }
+
 
 #forecastPane Label {
     -fx-text-fill: white;
@@ -102,26 +129,7 @@
     -fx-background-image: url("../images/transparent-background-2.png");
 }
 
-.settings_panel {
-    -fx-background-image: url("../images/forecastbackground.jpg");
-}
 
-.main_bg {
-    -fx-background-image: url("../images/main-background.jpg");
-}
 
-.main_panel .main_button {
-    -fx-background-color: #699DB6;
-    -fx-border-color: rgba(0,0,0,0.3);
-    -fx-text-fill: #FFF;
-}
 
-.main_panel .main_button:hover {
-    -fx-background-color: #4F87A2;
-    -fx-border-color: rgba(0,0,0,0.5);
-}
 
-.main_panel .main_button:pressed {
-    -fx-background-color: #3C677B;
-    -fx-border-color: rgba(0,0,0,0.9);
-}

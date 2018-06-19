@@ -23,7 +23,7 @@ public class YahooWeatherDesc {
                     jsonURL.openStream()));
             json = in.readLine();
 
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
         } finally {
             if (in != null) {
                 try {

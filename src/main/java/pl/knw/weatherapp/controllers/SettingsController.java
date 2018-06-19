@@ -33,7 +33,7 @@ public class SettingsController implements Initializable {
     public TextField nameTextField;
     public ToggleButton wpToggleButton, onetToggleButton, interiaToggleButton, forecaToggleButton, pogodaToggleButton, gismeteoToggleButton;
     public ChoiceBox choicebox;
-    List<ToggleButton> togglebuttons = new ArrayList<ToggleButton>();
+    private List<ToggleButton> togglebuttons = new ArrayList<ToggleButton>();
     public Integer[] sitesSettings;
 
     @Override
@@ -114,8 +114,8 @@ public class SettingsController implements Initializable {
         writer.println(nameTextField.getText());
         properties.put("name", nameTextField.getText());
         properties.put("sites", sitesSettings);
-        for(int i = 0; i < sitesSettings.length; i++) {
-            if(sitesSettings[i] == 0) writer.println(0);
+        for (Integer sitesSetting : sitesSettings) {
+            if (sitesSetting == 0) writer.println(0);
             else writer.println(1);
         }
         if(choicebox.getValue().toString().equals("style1.css")) writer.println(0);

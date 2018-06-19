@@ -11,10 +11,10 @@ import java.io.IOException;
 public class WeatherOnet extends Sites {
 
     private static final String DEGREE = "\u00b0";
-    public String weatherlink;
-    public Document doc;
+    private String weatherlink;
+    private Document doc;
 
-    public WeatherOnet() {
+    WeatherOnet() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[Onet] Getting html code...");
         String url = "https://www.google.pl/search?q=onet+pogoda+" + properties.get("city");

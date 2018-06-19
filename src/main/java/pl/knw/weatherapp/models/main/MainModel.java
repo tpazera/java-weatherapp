@@ -15,10 +15,10 @@ public class MainModel {
     private static final String STRING_URL = "http://checkip.amazonaws.com";
 
     public Map<String, String> getCurrentLocation() {
-        Location locationServices = null;
+        Location locationServices;
         Map<String, String> locationInfo = new HashMap<String, String>();
         try {
-            LookupService lookup = null;
+            LookupService lookup;
             String classesRootDir = String.valueOf(getClass().getProtectionDomain().getCodeSource().getLocation());
             String[] parts = classesRootDir.split("file:");
             lookup = new LookupService(parts[1]+"pl/knw/weatherapp/geolite/GeoLiteCity.dat", LookupService.GEOIP_MEMORY_CACHE | LookupService.GEOIP_CHECK_CACHE);
@@ -26,6 +26,7 @@ public class MainModel {
             if (locationServices == null) {
                 System.out.println("GeoliteCity database null!");
             }
+            assert locationServices != null;
             if(locationServices.city.equals("Polska")) {
                 locationInfo.put("City", "Krakow");
                 locationInfo.put("CountryCode", "PL");
@@ -74,7 +75,7 @@ public class MainModel {
             ip = in.readLine();
 
             return ip;
-        } catch (Exception ex) {
+        } catch (Exception ignored) {
         } finally {
             if (in != null) {
                 try {

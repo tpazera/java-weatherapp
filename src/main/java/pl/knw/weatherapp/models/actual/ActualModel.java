@@ -12,6 +12,7 @@ public class ActualModel {
         ProjectProperties properties = ProjectProperties.getInstance();
         Integer[] sitesSettings = (Integer[]) properties.get("sites");
         sites.clear();
+        assert sitesSettings != null;
         for(int i = 0; i < sitesSettings.length; i++) {
             if(sitesSettings[i] == 1) {
                 switch(i) {

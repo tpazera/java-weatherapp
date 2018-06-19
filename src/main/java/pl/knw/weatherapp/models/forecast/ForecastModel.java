@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ForecastModel {
 
-    Site site;
+    private Site site;
 
     public ForecastModel(int s) {
         if (s == 0) site = new Site("openweathermap", new OWMFactory());

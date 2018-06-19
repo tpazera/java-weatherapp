@@ -91,12 +91,12 @@ public class ForecastController implements Initializable {
                                     String text2 = min.get(i);
                                     try {
                                         text = text.substring(0,5);
-                                    } catch (Exception e) {
+                                    } catch (Exception ignored) {
 
                                     }
                                     try {
                                         text2 = text.substring(0,5);
-                                    } catch (Exception e) {
+                                    } catch (Exception ignored) {
 
                                     }
                                     result.setText(text + "-" + text2 + DEGREE + "C");

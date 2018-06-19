@@ -11,10 +11,10 @@ import java.io.IOException;
 public class WeatherGismeteo extends Sites {
 
     private static final String DEGREE = "\u00b0";
-    public String weatherlink;
-    public Document doc;
+    private String weatherlink;
+    private Document doc;
 
-    public WeatherGismeteo() {
+    WeatherGismeteo() {
         ProjectProperties properties = ProjectProperties.getInstance();
         System.out.println("[Gismeteo] Getting html code...");
         String url = "https://www.google.pl/search?q=gismeteo+pogoda+" + properties.get("city");

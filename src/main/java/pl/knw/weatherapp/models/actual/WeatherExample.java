@@ -11,8 +11,8 @@ import java.io.IOException;
 public class WeatherExample extends Sites {
 
     private static final String DEGREE = "\u00b0";
-    public String weatherlink;
-    public Document doc;
+    private String weatherlink;
+    private Document doc;
 
     public WeatherExample() {
         ProjectProperties properties = ProjectProperties.getInstance();
